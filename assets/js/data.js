@@ -36,6 +36,7 @@ window.FF_CONFIG = {
    - Ruta local (assets/img/...): se usa tal cual.
    - ID de Unsplash: retratos editoriales de portada. */
 window.ffImg = function (src, w, ratio) {
+  if (src.indexOf("medias.yvesrocher") > -1) return src + "&twic=v1/resize=" + w + "/background=white";
   if (/^https?:/.test(src)) return src + (src.indexOf("?") > -1 ? "&" : "?") + "width=" + w;
   if (src.indexOf("/") > -1) return src;
   return "https://images.unsplash.com/photo-" + src + "?auto=format&fit=crop&ar=" + (ratio || "4:5") + "&w=" + w + "&q=72";
@@ -45,17 +46,23 @@ window.FF_CATEGORIES = [
   { id: "labios", name: "Labios" },
   { id: "rostro", name: "Rostro y mejillas" },
   { id: "ojos", name: "Ojos y cejas" },
-  { id: "skincare", name: "Skincare" }
+  { id: "skincare", name: "Skincare" },
+  { id: "cuerpo", name: "Cuerpo y fragancia" }
 ];
 
 window.FF_BRANDS = [
   { id: "rhode", name: "Rhode" },
   { id: "rare-beauty", name: "Rare Beauty" },
-  { id: "laneige", name: "Laneige" },
+  { id: "summer-fridays", name: "Summer Fridays" },
+  { id: "eadem", name: "EADEM" },
+  { id: "patrick-ta", name: "Patrick Ta" },
+  { id: "one-size", name: "ONE/SIZE" },
   { id: "cosrx", name: "COSRX" },
   { id: "anua", name: "Anua" },
   { id: "skin1004", name: "SKIN1004" },
-  { id: "beauty-of-joseon", name: "Beauty of Joseon" }
+  { id: "beauty-of-joseon", name: "Beauty of Joseon" },
+  { id: "innisfree", name: "innisfree" },
+  { id: "yves-rocher", name: "Yves Rocher" }
 ];
 
 window.FF_SKIN = [
@@ -80,6 +87,7 @@ window.FF_COLLECTIONS = [
    reviews: 0 la tarjeta no muestra estrellas. */
 var RH = "https://cdn.shopify.com/s/files/1/0606/5451/8510/";
 var RB = "https://cdn.shopify.com/s/files/1/0314/1143/7703/";
+var YRM = "https://medias.yvesrocher.ca/medias/?context=";
 var SHIP = "Entrega personal en Heredia o envío por Correos de Costa Rica a todo el país. " +
   "El costo del envío se confirma por WhatsApp según el destino. " +
   "Cambios dentro de los 7 días posteriores a la entrega si el producto está sellado y sin uso.";
@@ -304,15 +312,6 @@ window.FF_PRODUCTS = [
 
   /* ===== Skincare coreano ===== */
   {
-    id: "laneige-lip-sleeping-mask", brand: "laneige", name: "Lip Sleeping Mask", category: "labios",
-    skin: ["todo"], collections: ["k-beauty", "mas-pedidas"], usd: 24, price: 19000,
-    images: ["https://cdn.shopify.com/s/files/1/0255/0189/2660/files/LSM_Berry_Infographic_2000x2000Product1_1.jpg", "https://cdn.shopify.com/s/files/1/0255/0189/2660/files/Inline_Content_Block.jpg"],
-    shades: [{ name: "Berry" }, { name: "Gummy Bear" }, { name: "Vanilla" }, { name: "Lemon Sorbet" }],
-    description: "La mascarilla de labios coreana más conocida. Se aplica antes de dormir y amaneces con labios suaves.",
-    howto: "Aplica una capa generosa por la noche con la espátula incluida. Retira el exceso en la mañana.",
-    ingredients: "Con vitamina C y complejo de bayas." + INCI, shipping: SHIP
-  },
-  {
     id: "cosrx-snail-96-mucin-essence", brand: "cosrx", name: "Advanced Snail 96 Mucin Power Essence", category: "skincare",
     skin: ["todo", "seca", "sensible"], collections: ["k-beauty", "mas-pedidas"], usd: 25, price: 19000, badge: "K-beauty",
     images: ["https://cdn.shopify.com/s/files/1/0513/3775/6828/files/james_800x1067_1_1_4e9750cc-2cd6-4817-ace5-be2305a85806.jpg", "https://cdn.shopify.com/s/files/1/0513/3775/6828/files/Snail96Essence_8.jpg"],
@@ -351,6 +350,144 @@ window.FF_PRODUCTS = [
     description: "Protector solar ligero de acabado natural, sin rastro blanco. Ideal para el sol de Costa Rica todos los días.",
     howto: "Último paso de la rutina de mañana. Reaplica cada dos horas si estás al sol.",
     ingredients: "SPF50+ PA++++ con extracto de arroz y niacinamida." + INCI, shipping: SHIP
+  },
+
+  /* ===== Nuevos: más vendidos de Sephora (27-sep-2026) ===== */
+  {
+    id: "rhode-peptide-lip-shape", brand: "rhode", name: "Peptide Lip Shape", category: "labios",
+    skin: ["todo"], collections: ["mas-pedidas"], usd: 24, price: 19000, badge: "Nuevo",
+    images: [RH + "files/jump-main.png"],
+    shades: [
+      { name: "Jump", img: RH + "files/jump-main.png" },
+      { name: "Squeeze", img: RH + "files/squeeze-main.png" },
+      { name: "Push", img: RH + "files/push-main.png" },
+      { name: "Move", img: RH + "files/MOVE-pls-main-png-sq.png" },
+      { name: "Spin", img: RH + "files/spin-pls-main-png-sq.png" },
+      { name: "Flex", img: RH + "files/FLEX-pls-main-png-sq.png" },
+      { name: "Lean", img: RH + "files/LEAN-pls-main-png-sq.png" },
+      { name: "Twist", img: RH + "files/TWIST-pls-main-png-sq.png" }
+    ],
+    description: "Delineador de labios en crema con péptidos: define el contorno, rellena y se difumina fácil.",
+    howto: "Delinea el contorno y difumina hacia el centro. Termina con Peptide Lip Tint o Lip Treatment.",
+    ingredients: "Delineador en crema con péptidos." + INCI, shipping: SHIP
+  },
+  {
+    id: "rhode-peptide-eye-prep", brand: "rhode", name: "Peptide Eye Prep", category: "skincare",
+    skin: ["todo"], collections: [], usd: 25, price: 19000, badge: "Nuevo",
+    images: [RH + "files/eyeprep-r-icon-main-png-2000x2000.png"],
+    description: "Parches para el contorno de ojos con péptidos, pensados para refrescar y desinflamar la mirada antes del maquillaje.",
+    howto: "Coloca los parches bajo los ojos sobre la piel limpia, déjalos unos minutos y retíralos. Da toquecitos al producto restante.",
+    ingredients: "Parches de contorno de ojos con péptidos." + INCI, shipping: SHIP
+  },
+  {
+    id: "rhode-glazing-mist", brand: "rhode", name: "Glazing Mist", category: "skincare",
+    skin: ["todo"], collections: ["glow"], usd: 30, price: 23000,
+    images: [RH + "files/mist-menu-png-2000x2000_bf2f0f50-ad7a-4ffb-bd85-a5dc7ab67aec.png", RH + "files/mini-mist-main.png"],
+    description: "Bruma facial hidratante para refrescar la piel y renovar el glow durante el día, incluso sobre el maquillaje.",
+    howto: "Rocía a unos 20 cm del rostro después de tu rutina o cada vez que quieras refrescar la piel.",
+    ingredients: "Bruma facial hidratante." + INCI, shipping: SHIP
+  },
+  {
+    id: "summer-fridays-lip-butter-balm", brand: "summer-fridays", name: "Lip Butter Balm", category: "labios",
+    skin: ["todo"], collections: ["mas-pedidas"], usd: 24, price: 19000, badge: "Top Sephora",
+    images: ["https://cdn.shopify.com/s/files/1/2382/2877/files/Main-LBB-Sugar-Plum.jpg"],
+    shades: [
+      { name: "Sugar Plum", img: "https://cdn.shopify.com/s/files/1/2382/2877/files/Main-LBB-Sugar-Plum.jpg" },
+      { name: "Mocha Bonbon", img: "https://cdn.shopify.com/s/files/1/2382/2877/files/Main-LBB-Mocha-Bon-Bon.jpg" },
+      { name: "Strawberry Soft Serve", img: "https://cdn.shopify.com/s/files/1/2382/2877/files/LBBStrawberrySoftServeMain.jpg" },
+      { name: "Toasted Marshmallow", img: "https://cdn.shopify.com/s/files/1/2382/2877/files/LipButterBalmToastedMarshmallowMain.jpg" },
+      { name: "Pink Guava", img: "https://cdn.shopify.com/s/files/1/2382/2877/files/Main-Lip-Butter-Balm-Pink-Guava.jpg" },
+      { name: "Birthday Cake", img: "https://cdn.shopify.com/s/files/1/2382/2877/files/LBB-Square-Bday-Cake_f2d33d1c-4224-47b6-be86-9b6eb388de44.jpg" },
+      { name: "Iced Coffee", img: "https://cdn.shopify.com/s/files/1/2382/2877/files/LBB-Iced-Coffee-Square.jpg" },
+      { name: "Hot Cocoa", img: "https://cdn.shopify.com/s/files/1/2382/2877/files/Square-Lip-Butter-Balm-Hot-Cocoa-Main.jpg" }
+    ],
+    description: "El bálsamo de labios que se volvió favorito en Sephora: textura mantequillosa, brillo suave y labios nutridos.",
+    howto: "Aplica directo sobre los labios durante el día o como tratamiento antes de dormir.",
+    ingredients: "Bálsamo labial nutritivo." + INCI, shipping: SHIP
+  },
+  {
+    id: "eadem-le-chouchou", brand: "eadem", name: "Le Chouchou Peptide Lip Balm", category: "labios",
+    skin: ["todo"], collections: ["mas-pedidas"], usd: 24, price: 19000, badge: "Top Sephora",
+    images: ["https://cdn.shopify.com/s/files/1/0512/1661/3529/files/LCC_TUBE_TRANSARENT.png", "https://cdn.shopify.com/s/files/1/0512/1661/3529/files/PDP_LCC_Sakura_03_LipMacro.jpg"],
+    shades: [{ name: "Coquito Dulce" }, { name: "Sakura Shaved Ice" }, { name: "Chateau Rose" }, { name: "Guava Fresca" }, { name: "Fig Sauce" }, { name: "Bissap Glaze" }, { name: "Butter Mochi" }, { name: "Churro de Canela" }, { name: "Burnt Malai" }, { name: "Boba Bounce" }],
+    description: "Bálsamo labial con péptidos que suaviza y deja un brillo jugoso. Uno de los más vendidos de Sephora.",
+    howto: "Aplica directo del tubo cuantas veces quieras durante el día.",
+    ingredients: "Bálsamo labial con péptidos." + INCI, shipping: SHIP
+  },
+  {
+    id: "patrick-ta-major-headlines-blush-duo", brand: "patrick-ta", name: "Major Headlines Double-Take Crème & Powder Blush Duo", category: "rostro",
+    skin: ["todo"], collections: ["mas-pedidas"], usd: 40, price: 31000, badge: "Top Sephora",
+    images: ["https://cdn.shopify.com/s/files/1/0099/0602/8608/files/Major-Headlines-Double-Take-Creme-_-Powder-Blush-Duo-Out-of-Office.jpg", "https://cdn.shopify.com/s/files/1/0099/0602/8608/files/2990125-av-1.png"],
+    shades: [{ name: "Out Of Office" }, { name: "Thank Me Later" }, { name: "Soft Launch" }, { name: "She Left Me On Red" }, { name: "She Goes to the Gym" }, { name: "She's Seductive" }, { name: "She Knows Who She Is" }, { name: "Just Enough" }],
+    description: "Dúo de rubor en crema y en polvo del mismo tono: la crema da el color y el polvo lo sella para que dure todo el día.",
+    howto: "Aplica primero la crema con los dedos y difumina. Sella con el polvo usando una brocha.",
+    ingredients: "Rubor en crema y en polvo." + INCI, shipping: SHIP
+  },
+  {
+    id: "one-size-on-til-dawn", brand: "one-size", name: "On 'Til Dawn Mattifying Waterproof Setting Spray", category: "rostro",
+    skin: ["grasa", "mixta", "todo"], collections: ["mas-pedidas"], usd: 36, price: 28000,
+    images: ["https://cdn.shopify.com/s/files/1/0352/4139/4313/files/On_Til_Dawn_Setting_Spray_FS_v2.jpg", "https://cdn.shopify.com/s/files/1/0352/4139/4313/files/On_Til_Dawn_Setting_Spray_TS_v2.jpg"],
+    description: "Spray fijador matificante y a prueba de agua para que el maquillaje aguante el calor y la humedad.",
+    howto: "Agita y rocía a unos 20 cm del rostro en forma de X y T al terminar el maquillaje.",
+    ingredients: "Spray fijador matificante, tamaño completo." + INCI, shipping: SHIP
+  },
+  {
+    id: "innisfree-green-tea-ceramide-mist", brand: "innisfree", name: "Green Tea Ceramide Mist", category: "skincare",
+    skin: ["seca", "sensible", "todo"], collections: ["k-beauty"], usd: 17, price: 14000, badge: "K-beauty",
+    images: ["https://cdn.shopify.com/s/files/1/0089/3367/1012/files/1_IF_GT-CMM-90ml_Packshot_1080x1080_268e45e2-b8f4-4b88-90b5-8e85feaf71e8.jpg"],
+    description: "Bruma coreana con té verde de Jeju y ceramidas para hidratar y calmar la piel en cualquier momento del día.",
+    howto: "Rocía sobre el rostro limpio o encima del maquillaje para refrescar.",
+    ingredients: "Bruma facial con té verde y ceramidas." + INCI, shipping: SHIP
+  },
+
+  /* ===== Nuevos: más vendidos de Yves Rocher (27-sep-2026) ===== */
+  {
+    id: "yves-rocher-pur-bleuet-eye-remover", brand: "yves-rocher", name: "Pur Bleuet Express Eye Makeup Remover 200 ml", category: "skincare",
+    skin: ["todo"], collections: [], usd: 10.58, price: 9000,
+    images: [YRM + "bWFzdGVyfGltYWdlc3w1NzU1NXxpbWFnZS9qcGVnfHN5c19tYXN0ZXIvaW1hZ2VzL2hkMC9oZDIvMTAzNzAyNjAyMDU1OTh8OWFkMThjNzlhYWNhYTBmOWU5M2VhZTNlMmNhZDk1MmRjNjFjYzVlZjg1YzM4NzRkODlkMTAwOGUxYjE1OWMwYg"],
+    description: "El desmaquillante de ojos más vendido de Yves Rocher, con aciano. Retira el maquillaje de ojos, incluso la máscara a prueba de agua.",
+    howto: "Agita, humedece un algodón y apóyalo unos segundos sobre el ojo cerrado antes de deslizar.",
+    ingredients: "Desmaquillante de ojos con aciano." + INCI, shipping: SHIP
+  },
+  {
+    id: "yves-rocher-pure-algue-micellar-water", brand: "yves-rocher", name: "Pure Algue Hydrating Micellar Water 400 ml", category: "skincare",
+    skin: ["mixta", "todo"], collections: [], usd: 19.06, price: 16000,
+    images: [YRM + "bWFzdGVyfGltYWdlc3w5NTExNnxpbWFnZS9qcGVnfHN5c19tYXN0ZXIvaW1hZ2VzL2gzNi9oYTcvMTAzNzAyNTM5NDY5MTB8N2I3NmI5Njc3NGViMTVkNjdlY2Q1NjQ5YThkZTc3YTQ5OWViYmNkY2FjZmRmMzhjMDVmODdiMWMwNmIzMTJhNg"],
+    description: "Agua micelar hidratante para limpiar y desmaquillar rostro, ojos y labios en un solo paso. Formato grande.",
+    howto: "Aplica con un algodón sobre rostro, ojos y labios. No necesita enjuague.",
+    ingredients: "Agua micelar con extractos de algas." + INCI, shipping: SHIP
+  },
+  {
+    id: "yves-rocher-glow-activating-serum", brand: "yves-rocher", name: "Glow Énergie Glow Activating Serum 30 ml", category: "skincare",
+    skin: ["todo"], collections: ["glow"], usd: 35.33, price: 28000,
+    images: [YRM + "bWFzdGVyfGltYWdlc3w0MzE4NTl8aW1hZ2UvanBlZ3xzeXNfbWFzdGVyL2ltYWdlcy9oN2MvaDBiLzEwMzYzNTA1MTE1MTY2fDE2NGZhNGFiZmI3MmM0MDgyODNjYmRkYzlmYWFmODAzY2FhODE1YzQ2ZWZjOGYzZGQxMzlmNDkwZWQwZGJmN2Y"],
+    description: "Sérum iluminador para las primeras señales de la edad. Deja la piel con más luz y aspecto descansado.",
+    howto: "Aplica unas gotas mañana y noche sobre la piel limpia, antes de la crema.",
+    ingredients: "Sérum facial iluminador." + INCI, shipping: SHIP
+  },
+  {
+    id: "yves-rocher-riche-creme", brand: "yves-rocher", name: "Riche Crème Intense Regenerating Care 75 ml", category: "skincare",
+    skin: ["seca"], collections: [], usd: 48.77, price: 38000,
+    images: [YRM + "bWFzdGVyfGltYWdlc3wxNjc1NTN8aW1hZ2UvanBlZ3xzeXNfbWFzdGVyL2ltYWdlcy9oZTIvaGE5LzEwMzYzNTE2NjE2NzM0fGNjY2ExZWEyZTRkZGQyNGY3ZGFjNTk1YTYyNTVlODA1NGRmMGE2Y2UwOWExMDIxNWU3YjE4YjRjMmEzYzAwYmE"],
+    description: "Crema nutritiva de textura rica para piel madura. Uno de los clásicos más vendidos de Yves Rocher.",
+    howto: "Aplica mañana y noche sobre rostro y cuello con movimientos ascendentes.",
+    ingredients: "Crema facial nutritiva para piel madura." + INCI, shipping: SHIP
+  },
+  {
+    id: "yves-rocher-monoi-pearly-oil", brand: "yves-rocher", name: "Monoï Moisturizing Pearly Oil 100 ml", category: "cuerpo",
+    skin: ["todo"], collections: ["glow"], usd: 19.06, price: 16000,
+    images: [YRM + "bWFzdGVyfGltYWdlc3w1Njk4NDN8aW1hZ2UvcG5nfHN5c19tYXN0ZXIvaW1hZ2VzL2g3NS9oZWYvMTAzNjM1MzY0NzQxNDJ8MmQ1NGU0ZDM1YzZiNDcxMzc3Mjk0ZDEzYTdhNzdjN2U5YWI0Y2FmNjJiNGM5MzJjZjFiZmM2ZGYxZmUyNDcxYw"],
+    description: "Aceite corporal nacarado con aroma a monoï que hidrata y deja la piel con un brillo sutil.",
+    howto: "Aplica sobre la piel del cuerpo después de la ducha, en piernas, brazos y escote.",
+    ingredients: "Aceite corporal nacarado." + INCI, shipping: SHIP
+  },
+  {
+    id: "yves-rocher-comme-une-evidence", brand: "yves-rocher", name: "Comme une Évidence Eau de Parfum 50 ml", category: "cuerpo",
+    skin: ["todo"], collections: [], usd: 41.70, price: 33000,
+    images: [YRM + "bWFzdGVyfGltYWdlc3wxMDAyMjF8aW1hZ2UvanBlZ3xzeXNfbWFzdGVyL2ltYWdlcy9oNzcvaGUwLzEwMzA2MTU3NzQwMDYyfDIyOGU3YzdlNzljMWYwYjhjNzkwMzMwOTdkZjI0ZTBiMTE2ZDYxZTJiYmRkZmQzN2UxMDZkZDY4NjgxZjU3YzY"],
+    description: "El perfume femenino emblemático de Yves Rocher, en eau de parfum de 50 ml.",
+    howto: "Aplica en cuello y muñecas. Evita frotar para que el aroma dure más.",
+    ingredients: "Eau de parfum." + INCI, shipping: SHIP
   }
 ];
 
