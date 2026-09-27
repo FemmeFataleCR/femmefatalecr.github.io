@@ -280,6 +280,17 @@
     }
   });
 
+  /* WhatsApp en celulares: abrir en la misma pestaña. El navegador interno de
+     Instagram y Facebook bloquea o deja en blanco las pestañas nuevas, y así
+     el enlace wa.me abre directamente la app de WhatsApp. */
+  document.addEventListener("click", function (e) {
+    var wa = e.target.closest('a[href^="https://wa.me/"]');
+    if (wa && window.matchMedia("(pointer: coarse)").matches) {
+      e.preventDefault();
+      window.location.href = wa.href;
+    }
+  });
+
   document.addEventListener("click", function (e) {
     var a = e.target.closest("[data-add]");
     if (a) { e.preventDefault(); FF.addToCart(a.getAttribute("data-add"), null, 1, { open: true }); }
