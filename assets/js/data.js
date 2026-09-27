@@ -11,10 +11,10 @@ window.FF_CONFIG = {
   email: "hola@femmefatalecr.com", // PENDIENTE: correo real
   city: "Heredia, Costa Rica",
 
-  // PRECIOS: cada producto trae su precio oficial en dólares (usd). Mientras
-  // no tenga `price` propio, el precio en colones se calcula como
-  // usd × usdRate, redondeado a los ₡100. Para fijar el precio de venta real,
-  // agregar `price: 14500` al producto y listo.
+  // PRECIOS: `price` es el precio de venta en colones (lista de precios del
+  // 27-sep-2026: 4 precios reales del P&L + 17 propuestos con la misma lógica).
+  // `usd` es el costo: precio oficial de la marca en EE. UU. Si un producto no
+  // tiene `price`, se calcula como usd × usdRate, redondeado a los ₡100.
   usdRate: 510, // PENDIENTE: tipo de cambio de referencia
 
   // Feed de Instagram en vivo (opcional). Con una cuenta gratuita de behold.so
@@ -27,7 +27,8 @@ window.FF_CONFIG = {
   newsletterEndpoint: "",
 
   // true mientras los precios sean de referencia. Muestra un aviso discreto.
-  demo: true
+  // Precios aprobados el 27-sep-2026.
+  demo: false
 };
 
 /* Imágenes: acepta tres formatos.
@@ -89,10 +90,12 @@ window.FF_PRODUCTS = [
   /* ===== Rhode ===== */
   {
     id: "rhode-peptide-lip-tint", brand: "rhode", name: "Peptide Lip Tint", category: "labios",
-    skin: ["todo"], collections: ["mas-pedidas", "glow"], usd: 20, badge: "Favorito",
+    skin: ["todo"], collections: ["mas-pedidas", "glow"], usd: 20, price: 17000, badge: "Favorito",
     images: [RH + "files/flatlay-square.png", "assets/img/rhode-lip-tint.webp"],
     shades: [
       { name: "Ribbon", img: RH + "files/flatlay-square.png" },
+      { name: "Colada", img: RH + "files/colada-main.png" },
+      { name: "Honey Mango", img: RH + "files/honey-mango-main.png" },
       { name: "Espresso", img: RH + "files/esp-flatlay-square.png" },
       { name: "Raspberry Jelly", img: RH + "files/flatlay-square-rasp.png" },
       { name: "Toast", img: RH + "files/toast-flatlay-square.png" },
@@ -105,7 +108,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "rhode-peptide-lip-treatment", brand: "rhode", name: "Peptide Lip Treatment", category: "labios",
-    skin: ["todo"], collections: ["mas-pedidas"], usd: 20,
+    skin: ["todo"], collections: ["mas-pedidas"], usd: 20, price: 17000,
     images: [RH + "files/main-png-2000x2000_unscented.png"],
     shades: [
       { name: "Unscented", img: RH + "files/main-png-2000x2000_unscented.png" },
@@ -119,7 +122,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "rhode-pocket-blush", brand: "rhode", name: "Pocket Blush", category: "rostro",
-    skin: ["todo"], collections: ["mas-pedidas", "glow"], usd: 25, badge: "Más pedido",
+    skin: ["todo"], collections: ["mas-pedidas", "glow"], usd: 25, price: 19000, badge: "Más pedido",
     images: [RH + "files/teacup-main.png", "assets/img/rhode-pocket-blush.webp"],
     shades: [
       { name: "Teacup", img: RH + "files/teacup-main.png" },
@@ -135,10 +138,12 @@ window.FF_PRODUCTS = [
   },
   {
     id: "rhode-pocket-bronze", brand: "rhode", name: "Pocket Bronze", category: "rostro",
-    skin: ["todo"], collections: ["glow"], usd: 25, badge: "Nuevo",
+    skin: ["todo"], collections: ["glow"], usd: 25, price: 19000, badge: "Nuevo",
     images: [RH + "files/sunbed-main.png", "assets/img/rhode-pocket-bronze.webp"],
     shades: [
       { name: "Sunbed", img: RH + "files/sunbed-main.png" },
+      { name: "Pebble", img: RH + "files/pebble-main.png" },
+      { name: "Sip", img: RH + "files/sip-main.png" },
       { name: "Bake", img: RH + "files/bake-main.png" },
       { name: "Drench", img: RH + "files/drench-main.png" },
       { name: "Plunge", img: RH + "files/plunge-main.png" }
@@ -149,7 +154,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "rhode-highlight-milk", brand: "rhode", name: "Highlight Milk", category: "rostro",
-    skin: ["todo"], collections: ["glow"], usd: 28, badge: "Nuevo",
+    skin: ["todo"], collections: ["glow"], usd: 28, price: 21000, badge: "Nuevo",
     images: [RH + "files/highlight-milk-2-main.png", "assets/img/rhode-highlight-milk.webp"],
     shades: [
       { name: "01", img: RH + "files/highlight-milk-1-main.png" },
@@ -163,7 +168,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "rhode-glazing-milk", brand: "rhode", name: "Glazing Milk", category: "skincare",
-    skin: ["todo", "seca", "sensible"], collections: ["glow"], usd: 32,
+    skin: ["todo", "seca", "sensible"], collections: ["glow"], usd: 32, price: 25000,
     images: [RH + "files/glazing-milk-sq.png", RH + "files/glazing-milk-pdp-mobile.jpg"],
     description: "Esencia ligera que prepara la piel y la deja con el acabado glaseado característico de Rhode.",
     howto: "Después de limpiar, aplica unas gotas con las manos antes del sérum y la crema.",
@@ -171,7 +176,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "rhode-barrier-restore-cream", brand: "rhode", name: "Barrier Restore Cream", category: "skincare",
-    skin: ["seca", "sensible", "mixta"], collections: [], usd: 32,
+    skin: ["seca", "sensible", "mixta"], collections: [], usd: 32, price: 25000,
     images: [RH + "products/brc-2000x2000_1.png"],
     description: "Crema hidratante que ayuda a reparar la barrera de la piel. Textura rica que se absorbe sin sensación pesada.",
     howto: "Último paso de tu rutina, mañana y noche. En la mañana, termina con protector solar.",
@@ -179,7 +184,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "rhode-peptide-glazing-fluid", brand: "rhode", name: "Peptide Glazing Fluid", category: "skincare",
-    skin: ["todo"], collections: ["glow"], usd: 32,
+    skin: ["todo"], collections: ["glow"], usd: 32, price: 25000,
     images: [RH + "products/glaze-2000x2000_1.png"],
     description: "Sérum en gel que hidrata y deja la piel luminosa. El paso que da el famoso efecto glazed.",
     howto: "Aplica una o dos gotas sobre la piel limpia, antes de la crema.",
@@ -189,7 +194,7 @@ window.FF_PRODUCTS = [
   /* ===== Rare Beauty ===== */
   {
     id: "rare-beauty-soft-pinch-liquid-blush", brand: "rare-beauty", name: "Soft Pinch Liquid Blush", category: "rostro",
-    skin: ["todo"], collections: ["mas-pedidas"], usd: 25, badge: "Más pedido",
+    skin: ["todo"], collections: ["mas-pedidas"], usd: 25, price: 19000, badge: "Más pedido",
     images: [RB + "files/ECOMM-SP-LIQUID-BLUSH-DEWY-HOPE.jpg", RB + "files/SWATCH-SP-LIQUID-BLUSH-DEWY-HOPE.png"],
     shades: [
       { name: "Hope", img: RB + "files/ECOMM-SP-LIQUID-BLUSH-DEWY-HOPE.jpg" },
@@ -207,7 +212,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "rare-beauty-positive-light-liquid-luminizer", brand: "rare-beauty", name: "Positive Light Liquid Luminizer", category: "rostro",
-    skin: ["todo"], collections: ["glow"], usd: 28,
+    skin: ["todo"], collections: ["glow"], usd: 28, price: 21000,
     images: [RB + "files/ECOMM-PL-LIQUID-LUMINIZER-ENLIGHTEN-1440x1952.jpg", RB + "files/SWATCHES-PL-LIQUID-LUMINIZER-ENLIGHTEN-1440x1952.png"],
     shades: [
       { name: "Enlighten", img: RB + "files/ECOMM-PL-LIQUID-LUMINIZER-ENLIGHTEN-1440x1952.jpg" },
@@ -223,7 +228,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "rare-beauty-warm-wishes-bronzer-stick", brand: "rare-beauty", name: "Warm Wishes Effortless Bronzer Stick", category: "rostro",
-    skin: ["todo"], collections: ["glow"], usd: 30,
+    skin: ["todo"], collections: ["glow"], usd: 30, price: 23000,
     images: [RB + "products/Bronzer-Stick-Power-Boost-SKU.jpg", RB + "products/swatch-bronzer-power-boost.png"],
     shades: [
       { name: "Power Boost", img: RB + "products/Bronzer-Stick-Power-Boost-SKU.jpg" },
@@ -238,7 +243,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "rare-beauty-soft-pinch-tinted-lip-oil", brand: "rare-beauty", name: "Soft Pinch Tinted Lip Oil", category: "labios",
-    skin: ["todo"], collections: ["mas-pedidas"], usd: 24,
+    skin: ["todo"], collections: ["mas-pedidas"], usd: 24, price: 19000,
     images: [RB + "products/soft-pinch-tinted-lip-oil-serenity-1440x1952.jpg", RB + "products/soft-pinch-tinted-lip-oil-macro-lip-serenity-1440x1952.jpg"],
     shades: [
       { name: "Serenity", img: RB + "products/soft-pinch-tinted-lip-oil-serenity-1440x1952.jpg" },
@@ -256,7 +261,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "rare-beauty-kind-words-matte-lipstick", brand: "rare-beauty", name: "Kind Words Matte Lipstick", category: "labios",
-    skin: ["todo"], collections: [], usd: 20,
+    skin: ["todo"], collections: [], usd: 20, price: 17000,
     images: [RB + "products/kind-words-matte-lipstick-talented.jpg", RB + "products/macro-lip-talented-1440x1952_25af9898-291c-4dc7-9fff-3366ea205796.jpg"],
     shades: [
       { name: "Talented", img: RB + "products/kind-words-matte-lipstick-talented.jpg" },
@@ -273,7 +278,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "rare-beauty-perfect-strokes-mascara", brand: "rare-beauty", name: "Perfect Strokes Volumizing Mascara", category: "ojos",
-    skin: ["todo"], collections: [], usd: 24,
+    skin: ["todo"], collections: [], usd: 24, price: 19000,
     images: [RB + "products/Full-Size-Mascara-Open-SKU.jpg", RB + "files/CAMPAIGN-BEFORE-AFTER-CAITLIN-PERFECT-STROKES-MASCARA.jpg"],
     description: "Máscara de volumen que levanta y define cada pestaña sin grumos.",
     howto: "Aplica desde la raíz con movimientos en zigzag hacia las puntas. Agrega capas para más volumen.",
@@ -281,7 +286,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "rare-beauty-brow-harmony-gel", brand: "rare-beauty", name: "Brow Harmony Flexible Lifting Gel", category: "ojos",
-    skin: ["todo"], collections: [], usd: 21,
+    skin: ["todo"], collections: [], usd: 21, price: 17000,
     images: [RB + "files/brow-harmony-flexible-lifting-gel-1440x1952.jpg"],
     shades: [
       { name: "Clear", img: RB + "files/brow-harmony-flexible-lifting-gel-1440x1952.jpg" },
@@ -300,7 +305,7 @@ window.FF_PRODUCTS = [
   /* ===== Skincare coreano ===== */
   {
     id: "laneige-lip-sleeping-mask", brand: "laneige", name: "Lip Sleeping Mask", category: "labios",
-    skin: ["todo"], collections: ["k-beauty", "mas-pedidas"], usd: 24,
+    skin: ["todo"], collections: ["k-beauty", "mas-pedidas"], usd: 24, price: 19000,
     images: ["https://cdn.shopify.com/s/files/1/0255/0189/2660/files/LSM_Berry_Infographic_2000x2000Product1_1.jpg", "https://cdn.shopify.com/s/files/1/0255/0189/2660/files/Inline_Content_Block.jpg"],
     shades: [{ name: "Berry" }, { name: "Gummy Bear" }, { name: "Vanilla" }, { name: "Lemon Sorbet" }],
     description: "La mascarilla de labios coreana más conocida. Se aplica antes de dormir y amaneces con labios suaves.",
@@ -309,7 +314,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "cosrx-snail-96-mucin-essence", brand: "cosrx", name: "Advanced Snail 96 Mucin Power Essence", category: "skincare",
-    skin: ["todo", "seca", "sensible"], collections: ["k-beauty", "mas-pedidas"], usd: 25, badge: "K-beauty",
+    skin: ["todo", "seca", "sensible"], collections: ["k-beauty", "mas-pedidas"], usd: 25, price: 19000, badge: "K-beauty",
     images: ["https://cdn.shopify.com/s/files/1/0513/3775/6828/files/james_800x1067_1_1_4e9750cc-2cd6-4817-ace5-be2305a85806.jpg", "https://cdn.shopify.com/s/files/1/0513/3775/6828/files/Snail96Essence_8.jpg"],
     description: "La esencia de baba de caracol que hizo famoso a COSRX. Hidrata, calma y ayuda a la piel a recuperarse.",
     howto: "Después del tónico, aplica una pequeña cantidad y da toquecitos hasta que se absorba.",
@@ -317,7 +322,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "anua-heartleaf-77-toner", brand: "anua", name: "Heartleaf 77% Soothing Toner", category: "skincare",
-    skin: ["grasa", "mixta", "sensible"], collections: ["k-beauty"], usd: 23,
+    skin: ["grasa", "mixta", "sensible"], collections: ["k-beauty"], usd: 23, price: 18000,
     images: ["https://cdn.shopify.com/s/files/1/0753/1429/9158/files/anua-us-toner-heartleaf-77-soothing-toner-1239193744.jpg", "https://cdn.shopify.com/s/files/1/0753/1429/9158/files/anua-us-toner-heartleaf-77-soothing-toner-1161173061.jpg"],
     description: "Tónico calmante de textura acuosa para pieles sensibles o con tendencia a enrojecerse.",
     howto: "Después de limpiar, aplica con las manos o un algodón dando toquecitos.",
@@ -325,7 +330,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "anua-heartleaf-cleansing-oil", brand: "anua", name: "Heartleaf Pore Control Cleansing Oil", category: "skincare",
-    skin: ["grasa", "mixta", "todo"], collections: ["k-beauty"], usd: 22,
+    skin: ["grasa", "mixta", "todo"], collections: ["k-beauty"], usd: 22, price: 18000,
     images: ["https://cdn.shopify.com/s/files/1/0753/1429/9158/files/anua-us-cleanser-heartleaf-pore-control-cleansing-oil-1239193742.jpg"],
     description: "Aceite limpiador que disuelve maquillaje y protector solar. El primer paso de la doble limpieza coreana.",
     howto: "Masajea sobre la piel seca, agrega un poco de agua para emulsionar y enjuaga. Sigue con tu limpiador en espuma.",
@@ -333,7 +338,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "skin1004-centella-ampoule", brand: "skin1004", name: "Madagascar Centella Ampoule", category: "skincare",
-    skin: ["sensible", "grasa", "mixta"], collections: ["k-beauty"], usd: 19.8,
+    skin: ["sensible", "grasa", "mixta"], collections: ["k-beauty"], usd: 19.8, price: 17000,
     images: ["https://cdn.shopify.com/s/files/1/0590/4538/0253/products/skin1004-ampoule-serum-centella-ampoule-38409088401654.jpg"],
     description: "Ampolla ligera que calma la piel irritada. Un clásico coreano para pieles sensibles.",
     howto: "Aplica unas gotas después del tónico y da toquecitos hasta que se absorba.",
@@ -341,7 +346,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "beauty-of-joseon-relief-sun", brand: "beauty-of-joseon", name: "Relief Sun: Rice + Niacinamide SPF50+", category: "skincare",
-    skin: ["todo"], collections: ["k-beauty", "mas-pedidas"], usd: 18, badge: "K-beauty",
+    skin: ["todo"], collections: ["k-beauty", "mas-pedidas"], usd: 18, price: 16000, badge: "K-beauty",
     images: ["https://cdn.shopify.com/s/files/1/0558/4135/7989/files/03_0805__-_ROW.jpg", "https://cdn.shopify.com/s/files/1/0558/4135/7989/files/05_0805__-_ROW_654a8e4e-1d53-4dca-a3a0-c0c2f55e3ca0.jpg"],
     description: "Protector solar ligero de acabado natural, sin rastro blanco. Ideal para el sol de Costa Rica todos los días.",
     howto: "Último paso de la rutina de mañana. Reaplica cada dos horas si estás al sol.",
