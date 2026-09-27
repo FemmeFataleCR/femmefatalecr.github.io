@@ -30,4 +30,50 @@
   });
 
   FF.renderInstagram($("#ig-grid"));
+
+  /* ---------- Reseñas reales (FF_REVIEWS en data.js) ---------- */
+  var reviews = (window.FF_REVIEWS || []).filter(function (r) { return r && r.text && r.name; });
+  if (reviews.length) {
+    $("#reviews-grid").innerHTML = reviews.slice(0, 6).map(function (r, i) {
+      var p = r.product && FF.byId[r.product];
+      var stars = Math.max(1, Math.min(5, Math.round(r.rating || 5)));
+      return '<figure class="review reveal" style="--i:' + i + '">' +
+        '<span class="review-stars" role="img" aria-label="' + stars + ' de 5 estrellas">' + new Array(stars + 1).join("★") + "</span>" +
+        "<blockquote>" + FF.esc(r.text) + "</blockquote>" +
+        "<figcaption><b>" + FF.esc(r.name) + "</b>" + (r.city ? ", " + FF.esc(r.city) : "") +
+        (p ? '<a href="' + FF.url(p) + '">' + FF.esc(FF.fullName(p)) + "</a>" : "") + "</figcaption></figure>";
+    }).join("");
+    $("#resenas").hidden = false;
+    FF.reveal($("#resenas"));
+  }
+
+  /* ---------- Restock ---------- */
+  var form = $("#restock-form");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var email = $("#rs-email"), product = $("#rs-product"), msg = $("#restock-msg");
+      msg.classList.remove("is-error");
+      if (!email.checkValidity()) {
+        msg.textContent = "Revisa el correo: parece incompleto.";
+        msg.classList.add("is-error");
+        email.focus();
+        return;
+      }
+      var id = window.FF_CONFIG.formspreeId;
+      if (!id) {
+        // Sin Formspree: la solicitud va por WhatsApp
+        msg.innerHTML = 'Envíanos tu solicitud por WhatsApp y te avisamos apenas llegue: <a class="link-underline" target="_blank" rel="noopener" href="' +
+          FF.wa("Hola Femme Fatale, avísenme cuando vuelva" + (product.value ? ": " + product.value : " un producto") + ". Mi correo es " + email.value + ".") +
+          '">abrir WhatsApp</a>.';
+        return;
+      }
+      var btn = form.querySelector("button");
+      btn.disabled = true;
+      fetch("https://formspree.io/f/" + id, { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) })
+        .then(function (r) { if (!r.ok) throw 0; msg.textContent = "Listo. Te escribiremos apenas llegue el restock."; form.reset(); })
+        .catch(function () { msg.textContent = "No pudimos guardar tu correo. Intenta de nuevo o escríbenos por WhatsApp."; msg.classList.add("is-error"); })
+        .then(function () { btn.disabled = false; });
+    });
+  }
 })();

@@ -7,12 +7,22 @@
 <meta name="description" content="Rhode, Rare Beauty, los más vendidos de Sephora, Yves Rocher y skincare coreano en Costa Rica. Entrega personal en Heredia y envíos por Correos a todo el país. Pedidos por WhatsApp.">
 <meta name="theme-color" content="#FAF7F4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#151113" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://femmefatalecr.github.io/">
+<!-- Open Graph: vista previa al compartir en WhatsApp, Instagram, Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CR">
-<meta property="og:site_name" content="Femme Fatale CR">
-<meta property="og:title" content="Femme Fatale CR | Belleza que se atreve">
-<meta property="og:description" content="Maquillaje y belleza con entrega personal en Heredia y envíos a todo Costa Rica.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&h=630&q=75">
+<meta property="og:site_name" content="FemmeFatale_CR">
+<meta property="og:url" content="https://femmefatalecr.github.io/">
+<meta property="og:title" content="FemmeFatale_CR | Belleza que se atreve">
+<meta property="og:description" content="Rhode, Rare Beauty, los favoritos de Sephora y skincare coreano en Costa Rica. Pedidos por WhatsApp, pago con SINPE Móvil y envíos a todo el país.">
+<meta property="og:image" content="https://femmefatalecr.github.io/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="FemmeFatale_CR: belleza que se atreve">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FemmeFatale_CR | Belleza que se atreve">
+<meta name="twitter:description" content="Rhode, Rare Beauty, los favoritos de Sephora y skincare coreano en Costa Rica. Pedidos por WhatsApp y envíos a todo el país.">
+<meta name="twitter:image" content="https://femmefatalecr.github.io/assets/img/og-image.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23FAF7F4'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-style='italic' font-size='42' text-anchor='middle' fill='%23231E21'%3EF%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +32,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css">
 <link rel="preload" as="image" href="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&ar=4:5&w=900&q=72" media="(max-width: 899px)">
 <link rel="preload" as="image" href="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&ar=1:1&w=1400&q=72" media="(min-width: 900px)">
-<link rel="stylesheet" href="assets/css/styles.css?v=14">
+<link rel="stylesheet" href="assets/css/styles.css?v=15">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,6 +44,17 @@
   "currenciesAccepted": "CRC",
   "paymentAccepted": "SINPE Móvil, transferencia bancaria",
   "sameAs": ["https://www.instagram.com/femmefatale_cr/"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "¿Los productos son originales?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Compramos directamente en las tiendas oficiales de cada marca y en Sephora. Todos los productos llegan sellados en su empaque original." } },
+    { "@type": "Question", "name": "¿Hacen envíos a todo Costa Rica?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, enviamos por Correos de Costa Rica a las siete provincias. El costo depende del destino y te lo confirmamos por WhatsApp antes de pagar. En Heredia también hacemos entregas personales." } },
+    { "@type": "Question", "name": "¿Cómo pago?", "acceptedAnswer": { "@type": "Answer", "text": "Por SINPE Móvil o transferencia bancaria, una vez que confirmamos tu pedido y el costo del envío por WhatsApp." } }
+  ]
 }
 </script>
 </head>
@@ -142,12 +163,57 @@
       <div class="ig-grid" id="ig-grid"></div>
     </div>
   </section>
+
+  <!-- 7. Reseñas: solo reseñas reales (FF_REVIEWS en data.js). Oculta si no hay. -->
+  <section class="section reviews" id="resenas" aria-labelledby="reviews-title" hidden>
+    <div class="container">
+      <h2 id="reviews-title" class="reviews-title">Lo que dicen nuestras clientas</h2>
+      <div class="reviews-grid" id="reviews-grid"></div>
+    </div>
+  </section>
+
+  <!-- 8. Preguntas frecuentes -->
+  <section class="section home-faq" id="preguntas" aria-labelledby="faq-title">
+    <div class="container faq-wrap">
+      <h2 id="faq-title">Preguntas frecuentes</h2>
+      <div class="accordion faq-list">
+        <details><summary>¿Los productos son originales? <i class="ph ph-plus" aria-hidden="true"></i></summary><div class="acc-body">Sí. Compramos directamente en las tiendas oficiales de cada marca y en Sephora. Todos los productos llegan sellados en su empaque original.</div></details>
+        <details><summary>¿Hacen envíos a todo Costa Rica? <i class="ph ph-plus" aria-hidden="true"></i></summary><div class="acc-body">Sí, enviamos por Correos de Costa Rica a las siete provincias y te compartimos la guía para que le des seguimiento. El costo depende del destino y te lo confirmamos por WhatsApp antes de pagar. En Heredia también hacemos entregas personales.</div></details>
+        <details><summary>¿Cómo pago? <i class="ph ph-plus" aria-hidden="true"></i></summary><div class="acc-body">Por SINPE Móvil o transferencia bancaria, una vez que confirmamos tu pedido y el costo del envío por WhatsApp.</div></details>
+        <details><summary>¿Cómo hago un pedido? <i class="ph ph-plus" aria-hidden="true"></i></summary><div class="acc-body">Agrega tus productos a la bolsa y presiona "Finalizar por WhatsApp". Te llega el pedido armado, con tonos y total, y lo confirmamos en el mismo chat.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Restock: captura de correos -->
+  <section class="restock" aria-labelledby="restock-title">
+    <div class="container restock-inner">
+      <div class="restock-copy">
+        <h2 id="restock-title">¿Buscas un producto agotado?</h2>
+        <p>Déjanos tu correo y sé la primera en enterarte de los restocks.</p>
+      </div>
+      <form class="restock-form" id="restock-form" novalidate>
+        <div class="field">
+          <label for="rs-email">Correo electrónico</label>
+          <input id="rs-email" name="email" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" required>
+        </div>
+        <div class="field">
+          <label for="rs-product">Producto que buscas <span class="optional">(opcional)</span></label>
+          <input id="rs-product" name="producto" type="text" placeholder="Ej.: Rhode Pocket Blush, tono Sleepy Girl">
+        </div>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+        <button class="btn" type="submit"><span>Avisarme</span></button>
+        <p class="nl-msg" id="restock-msg" role="status"></p>
+        <p class="consent">Usaremos tu correo solo para avisarte de restocks. Puedes pedir que lo borremos cuando quieras. Lee nuestra <a href="politicas.html#privacidad">política de privacidad</a>.</p>
+      </form>
+    </div>
+  </section>
 </main>
 
 <div data-mount="footer"></div>
 
-<script src="assets/js/data.js?v=14"></script>
-<script src="assets/js/app.js?v=14"></script>
-<script src="assets/js/home.js?v=14"></script>
+<script src="assets/js/data.js?v=15"></script>
+<script src="assets/js/app.js?v=15"></script>
+<script src="assets/js/home.js?v=15"></script>
 </body>
 </html>

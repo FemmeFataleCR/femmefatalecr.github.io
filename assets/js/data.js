@@ -26,6 +26,11 @@ window.FF_CONFIG = {
   // formulario avisa que el club abre pronto en vez de fingir un registro.
   newsletterEndpoint: "",
 
+  // Formulario de restock (formspree.io). Crear el formulario en Formspree y
+  // pegar aquí su código (por ejemplo "xyzabcde"). Vacío = la solicitud se
+  // envía por WhatsApp, así el formulario funciona desde el primer día.
+  formspreeId: "",
+
   // true mientras los precios sean de referencia. Muestra un aviso discreto.
   // Precios aprobados el 27-sep-2026.
   demo: false
@@ -576,3 +581,11 @@ window.FF_IG_POSTS = [
   { img: "assets/img/rhode-highlight-milk.webp", alt: "Rhode Highlight Milk en tonos cálidos", product: "rhode-highlight-milk" },
   { img: "assets/img/rhode-pocket-bronze.webp", alt: "Rhode Pocket Bronze en tonos café", product: "rhode-pocket-bronze" }
 ];
+
+/* Reseñas de clientas. SOLO reseñas reales, con permiso escrito de la
+   clienta para publicar su nombre (Ley 8968) y sin editar su contenido
+   (Ley 7472). Mientras la lista esté vacía, la sección no se muestra.
+   Formato:
+   { name: "Daniela R.", city: "Heredia", product: "rhode-pocket-blush",
+     text: "Lo que ella escribió, tal cual.", rating: 5, date: "2026-09" } */
+window.FF_REVIEWS = [];
