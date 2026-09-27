@@ -99,6 +99,8 @@ window.FF_PRODUCTS = [
   {
     id: "rhode-peptide-lip-tint", brand: "rhode", name: "Peptide Lip Tint", category: "labios",
     skin: ["todo"], collections: ["mas-pedidas", "glow"], usd: 20, price: 17000, badge: "Favorito",
+    size: "10 ml (0.3 fl oz)", includes: "1 tubo",
+    notes: ["Acabado brillante con un toque de color translúcido."],
     images: [RH + "files/flatlay-square.png", "assets/img/rhode-lip-tint.webp"],
     shades: [
       { name: "Ribbon", img: RH + "files/flatlay-square.png" },
@@ -117,6 +119,8 @@ window.FF_PRODUCTS = [
   {
     id: "rhode-peptide-lip-treatment", brand: "rhode", name: "Peptide Lip Treatment", category: "labios",
     skin: ["todo"], collections: ["mas-pedidas"], usd: 20, price: 17000,
+    size: "10 ml (0.3 fl oz)", includes: "1 tubo",
+    notes: ["Sin color, acabado brillante.", "El tono Unscented no tiene aroma."],
     images: [RH + "files/main-png-2000x2000_unscented.png"],
     shades: [
       { name: "Unscented", img: RH + "files/main-png-2000x2000_unscented.png" },
@@ -131,6 +135,8 @@ window.FF_PRODUCTS = [
   {
     id: "rhode-pocket-blush", brand: "rhode", name: "Pocket Blush", category: "rostro",
     skin: ["todo"], collections: ["mas-pedidas", "glow"], usd: 25, price: 19000, badge: "Más pedido",
+    size: "5.3 g (0.18 oz)", includes: "1 barra de rubor en crema",
+    notes: ["Sirve para mejillas y labios.", "Acabado satinado y luminoso."],
     images: [RH + "files/teacup-main.png", "assets/img/rhode-pocket-blush.webp"],
     shades: [
       { name: "Teacup", img: RH + "files/teacup-main.png" },
@@ -147,6 +153,8 @@ window.FF_PRODUCTS = [
   {
     id: "rhode-pocket-bronze", brand: "rhode", name: "Pocket Bronze", category: "rostro",
     skin: ["todo"], collections: ["glow"], usd: 25, price: 19000, badge: "Nuevo",
+    size: "5.3 g (0.18 oz)", includes: "1 barra de bronceador en crema",
+    notes: ["Color construible que se difumina con los dedos."],
     images: [RH + "files/sunbed-main.png", "assets/img/rhode-pocket-bronze.webp"],
     shades: [
       { name: "Sunbed", img: RH + "files/sunbed-main.png" },
@@ -163,6 +171,8 @@ window.FF_PRODUCTS = [
   {
     id: "rhode-highlight-milk", brand: "rhode", name: "Highlight Milk", category: "rostro",
     skin: ["todo"], collections: ["glow"], usd: 28, price: 21000, badge: "Nuevo",
+    size: "65 ml (2.2 fl oz)", includes: "1 frasco",
+    notes: ["Iluminador líquido para rostro y cuerpo, hecho con la fórmula del Glazing Milk."],
     images: [RH + "files/highlight-milk-2-main.png", "assets/img/rhode-highlight-milk.webp"],
     shades: [
       { name: "01", img: RH + "files/highlight-milk-1-main.png" },
@@ -177,6 +187,8 @@ window.FF_PRODUCTS = [
   {
     id: "rhode-glazing-milk", brand: "rhode", name: "Glazing Milk", category: "skincare",
     skin: ["todo", "seca", "sensible"], collections: ["glow"], usd: 32, price: 25000,
+    size: "124 ml (4.2 oz)", includes: "1 frasco, tamaño grande",
+    notes: ["Esencia de textura lechosa con ceramidas."],
     images: [RH + "files/glazing-milk-sq.png", RH + "files/glazing-milk-pdp-mobile.jpg"],
     description: "Esencia ligera que prepara la piel y la deja con el acabado glaseado característico de Rhode.",
     howto: "Después de limpiar, aplica unas gotas con las manos antes del sérum y la crema.",
@@ -185,6 +197,8 @@ window.FF_PRODUCTS = [
   {
     id: "rhode-barrier-restore-cream", brand: "rhode", name: "Barrier Restore Cream", category: "skincare",
     skin: ["seca", "sensible", "mixta"], collections: [], usd: 32, price: 25000,
+    size: "50 ml (1.7 oz)", includes: "1 envase, tamaño grande",
+    notes: ["Crema hidratante de uso diario, mañana y noche."],
     images: [RH + "products/brc-2000x2000_1.png"],
     description: "Crema hidratante que ayuda a reparar la barrera de la piel. Textura rica que se absorbe sin sensación pesada.",
     howto: "Último paso de tu rutina, mañana y noche. En la mañana, termina con protector solar.",
@@ -193,6 +207,8 @@ window.FF_PRODUCTS = [
   {
     id: "rhode-peptide-glazing-fluid", brand: "rhode", name: "Peptide Glazing Fluid", category: "skincare",
     skin: ["todo"], collections: ["glow"], usd: 32, price: 25000,
+    size: "50 ml (1.7 oz)", includes: "1 frasco, tamaño grande",
+    notes: ["Sérum en gel de absorción rápida."],
     images: [RH + "products/glaze-2000x2000_1.png"],
     description: "Sérum en gel que hidrata y deja la piel luminosa. El paso que da el famoso efecto glazed.",
     howto: "Aplica una o dos gotas sobre la piel limpia, antes de la crema.",
@@ -203,6 +219,8 @@ window.FF_PRODUCTS = [
   {
     id: "rare-beauty-soft-pinch-liquid-blush", brand: "rare-beauty", name: "Soft Pinch Liquid Blush", category: "rostro",
     skin: ["todo"], collections: ["mas-pedidas"], usd: 25, price: 19000, badge: "Más pedido",
+    size: "7.5 ml (0.25 fl oz)", includes: "1 frasco con aplicador",
+    notes: ["Un punto por mejilla es suficiente.", "Dura hasta 12 horas según la marca.", "Vegano y libre de crueldad animal, sin parabenos (según Rare Beauty)."],
     images: [RB + "files/ECOMM-SP-LIQUID-BLUSH-DEWY-HOPE.jpg", RB + "files/SWATCH-SP-LIQUID-BLUSH-DEWY-HOPE.png"],
     shades: [
       { name: "Hope", img: RB + "files/ECOMM-SP-LIQUID-BLUSH-DEWY-HOPE.jpg" },
@@ -221,6 +239,8 @@ window.FF_PRODUCTS = [
   {
     id: "rare-beauty-positive-light-liquid-luminizer", brand: "rare-beauty", name: "Positive Light Liquid Luminizer", category: "rostro",
     skin: ["todo"], collections: ["glow"], usd: 28, price: 21000,
+    size: "15 ml", includes: "1 frasco con aplicador",
+    notes: ["Vegano y libre de crueldad animal, sin parabenos (según Rare Beauty)."],
     images: [RB + "files/ECOMM-PL-LIQUID-LUMINIZER-ENLIGHTEN-1440x1952.jpg", RB + "files/SWATCHES-PL-LIQUID-LUMINIZER-ENLIGHTEN-1440x1952.png"],
     shades: [
       { name: "Enlighten", img: RB + "files/ECOMM-PL-LIQUID-LUMINIZER-ENLIGHTEN-1440x1952.jpg" },
@@ -237,6 +257,8 @@ window.FF_PRODUCTS = [
   {
     id: "rare-beauty-warm-wishes-bronzer-stick", brand: "rare-beauty", name: "Warm Wishes Effortless Bronzer Stick", category: "rostro",
     skin: ["todo"], collections: ["glow"], usd: 30, price: 23000,
+    size: "7 g", includes: "1 barra con aplicador de esponja integrado",
+    notes: ["Vegano y libre de crueldad animal, sin parabenos (según Rare Beauty)."],
     images: [RB + "products/Bronzer-Stick-Power-Boost-SKU.jpg", RB + "products/swatch-bronzer-power-boost.png"],
     shades: [
       { name: "Power Boost", img: RB + "products/Bronzer-Stick-Power-Boost-SKU.jpg" },
@@ -252,6 +274,8 @@ window.FF_PRODUCTS = [
   {
     id: "rare-beauty-soft-pinch-tinted-lip-oil", brand: "rare-beauty", name: "Soft Pinch Tinted Lip Oil", category: "labios",
     skin: ["todo"], collections: ["mas-pedidas"], usd: 24, price: 19000,
+    size: "3 ml (0.10 fl oz)", includes: "1 tubo con aplicador",
+    notes: ["Empieza como jalea y se transforma en aceite ligero.", "Vegano y libre de crueldad animal, sin parabenos (según Rare Beauty)."],
     images: [RB + "products/soft-pinch-tinted-lip-oil-serenity-1440x1952.jpg", RB + "products/soft-pinch-tinted-lip-oil-macro-lip-serenity-1440x1952.jpg"],
     shades: [
       { name: "Serenity", img: RB + "products/soft-pinch-tinted-lip-oil-serenity-1440x1952.jpg" },
@@ -270,6 +294,8 @@ window.FF_PRODUCTS = [
   {
     id: "rare-beauty-kind-words-matte-lipstick", brand: "rare-beauty", name: "Kind Words Matte Lipstick", category: "labios",
     skin: ["todo"], collections: [], usd: 20, price: 17000,
+    size: "3.5 g", includes: "1 labial en barra",
+    notes: ["Acabado mate suave.", "Vegano y libre de crueldad animal, sin parabenos (según Rare Beauty)."],
     images: [RB + "products/kind-words-matte-lipstick-talented.jpg", RB + "products/macro-lip-talented-1440x1952_25af9898-291c-4dc7-9fff-3366ea205796.jpg"],
     shades: [
       { name: "Talented", img: RB + "products/kind-words-matte-lipstick-talented.jpg" },
@@ -287,6 +313,8 @@ window.FF_PRODUCTS = [
   {
     id: "rare-beauty-perfect-strokes-mascara", brand: "rare-beauty", name: "Perfect Strokes Volumizing Mascara", category: "ojos",
     skin: ["todo"], collections: [], usd: 24, price: 19000,
+    size: "13.5 ml (0.45 oz)", includes: "1 máscara, tamaño completo",
+    notes: ["Vegano y libre de crueldad animal, sin parabenos (según Rare Beauty)."],
     images: [RB + "products/Full-Size-Mascara-Open-SKU.jpg", RB + "files/CAMPAIGN-BEFORE-AFTER-CAITLIN-PERFECT-STROKES-MASCARA.jpg"],
     description: "Máscara de volumen que levanta y define cada pestaña sin grumos.",
     howto: "Aplica desde la raíz con movimientos en zigzag hacia las puntas. Agrega capas para más volumen.",
@@ -295,6 +323,8 @@ window.FF_PRODUCTS = [
   {
     id: "rare-beauty-brow-harmony-gel", brand: "rare-beauty", name: "Brow Harmony Flexible Lifting Gel", category: "ojos",
     skin: ["todo"], collections: [], usd: 21, price: 17000,
+    size: "4.5 g (0.15 oz)", includes: "1 gel con cepillo",
+    notes: ["A prueba de agua y sudor, hasta 12 horas según la marca.", "Vegano y libre de crueldad animal, sin parabenos (según Rare Beauty)."],
     images: [RB + "files/brow-harmony-flexible-lifting-gel-1440x1952.jpg"],
     shades: [
       { name: "Clear", img: RB + "files/brow-harmony-flexible-lifting-gel-1440x1952.jpg" },
@@ -314,6 +344,8 @@ window.FF_PRODUCTS = [
   {
     id: "cosrx-snail-96-mucin-essence", brand: "cosrx", name: "Advanced Snail 96 Mucin Power Essence", category: "skincare",
     skin: ["todo", "seca", "sensible"], collections: ["k-beauty", "mas-pedidas"], usd: 25, price: 19000, badge: "K-beauty",
+    size: "100 ml (3.38 fl oz)", includes: "1 frasco con dosificador",
+    notes: ["96 % de filtrado de secreción de caracol."],
     images: ["https://cdn.shopify.com/s/files/1/0513/3775/6828/files/james_800x1067_1_1_4e9750cc-2cd6-4817-ace5-be2305a85806.jpg", "https://cdn.shopify.com/s/files/1/0513/3775/6828/files/Snail96Essence_8.jpg"],
     description: "La esencia de baba de caracol que hizo famoso a COSRX. Hidrata, calma y ayuda a la piel a recuperarse.",
     howto: "Después del tónico, aplica una pequeña cantidad y da toquecitos hasta que se absorba.",
@@ -322,6 +354,8 @@ window.FF_PRODUCTS = [
   {
     id: "anua-heartleaf-77-toner", brand: "anua", name: "Heartleaf 77% Soothing Toner", category: "skincare",
     skin: ["grasa", "mixta", "sensible"], collections: ["k-beauty"], usd: 23, price: 18000,
+    size: "250 ml", includes: "1 botella",
+    notes: ["77 % de extracto de heartleaf."],
     images: ["https://cdn.shopify.com/s/files/1/0753/1429/9158/files/anua-us-toner-heartleaf-77-soothing-toner-1239193744.jpg", "https://cdn.shopify.com/s/files/1/0753/1429/9158/files/anua-us-toner-heartleaf-77-soothing-toner-1161173061.jpg"],
     description: "Tónico calmante de textura acuosa para pieles sensibles o con tendencia a enrojecerse.",
     howto: "Después de limpiar, aplica con las manos o un algodón dando toquecitos.",
@@ -330,6 +364,8 @@ window.FF_PRODUCTS = [
   {
     id: "anua-heartleaf-cleansing-oil", brand: "anua", name: "Heartleaf Pore Control Cleansing Oil", category: "skincare",
     skin: ["grasa", "mixta", "todo"], collections: ["k-beauty"], usd: 22, price: 18000,
+    size: "200 ml", includes: "1 botella con dosificador",
+    notes: ["Primer paso de la doble limpieza: se enjuaga con agua."],
     images: ["https://cdn.shopify.com/s/files/1/0753/1429/9158/files/anua-us-cleanser-heartleaf-pore-control-cleansing-oil-1239193742.jpg"],
     description: "Aceite limpiador que disuelve maquillaje y protector solar. El primer paso de la doble limpieza coreana.",
     howto: "Masajea sobre la piel seca, agrega un poco de agua para emulsionar y enjuaga. Sigue con tu limpiador en espuma.",
@@ -338,6 +374,8 @@ window.FF_PRODUCTS = [
   {
     id: "skin1004-centella-ampoule", brand: "skin1004", name: "Madagascar Centella Ampoule", category: "skincare",
     skin: ["sensible", "grasa", "mixta"], collections: ["k-beauty"], usd: 19.8, price: 17000,
+    size: "100 ml", includes: "1 frasco con gotero",
+    notes: ["Formato grande de 100 ml."],
     images: ["https://cdn.shopify.com/s/files/1/0590/4538/0253/products/skin1004-ampoule-serum-centella-ampoule-38409088401654.jpg"],
     description: "Ampolla ligera que calma la piel irritada. Un clásico coreano para pieles sensibles.",
     howto: "Aplica unas gotas después del tónico y da toquecitos hasta que se absorba.",
@@ -346,6 +384,8 @@ window.FF_PRODUCTS = [
   {
     id: "beauty-of-joseon-relief-sun", brand: "beauty-of-joseon", name: "Relief Sun: Rice + Niacinamide SPF50+", category: "skincare",
     skin: ["todo"], collections: ["k-beauty", "mas-pedidas"], usd: 18, price: 16000, badge: "K-beauty",
+    size: "50 ml (1.69 fl oz)", includes: "1 tubo",
+    notes: ["SPF50+ PA++++.", "Reaplicar cada 2 horas al sol."],
     images: ["https://cdn.shopify.com/s/files/1/0558/4135/7989/files/03_0805__-_ROW.jpg", "https://cdn.shopify.com/s/files/1/0558/4135/7989/files/05_0805__-_ROW_654a8e4e-1d53-4dca-a3a0-c0c2f55e3ca0.jpg"],
     description: "Protector solar ligero de acabado natural, sin rastro blanco. Ideal para el sol de Costa Rica todos los días.",
     howto: "Último paso de la rutina de mañana. Reaplica cada dos horas si estás al sol.",
@@ -356,6 +396,8 @@ window.FF_PRODUCTS = [
   {
     id: "rhode-peptide-lip-shape", brand: "rhode", name: "Peptide Lip Shape", category: "labios",
     skin: ["todo"], collections: ["mas-pedidas"], usd: 24, price: 19000, badge: "Nuevo",
+    size: "0.75 g (0.026 oz)", includes: "1 delineador en barra",
+    notes: ["Los tonos Push, Squeeze y Jump no incluyen la esponjita difuminadora; Rhode la está retirando también de los demás tonos."],
     images: [RH + "files/jump-main.png"],
     shades: [
       { name: "Jump", img: RH + "files/jump-main.png" },
@@ -374,6 +416,8 @@ window.FF_PRODUCTS = [
   {
     id: "rhode-peptide-eye-prep", brand: "rhode", name: "Peptide Eye Prep", category: "skincare",
     skin: ["todo"], collections: [], usd: 25, price: 19000, badge: "Nuevo",
+    size: "6 pares de parches", includes: "1 caja con 6 pares de parches de hidrogel",
+    notes: ["Parches refrescantes para debajo de los ojos.", "Úsalos antes del maquillaje o cuando quieras desinflamar la mirada."],
     images: [RH + "files/eyeprep-r-icon-main-png-2000x2000.png"],
     description: "Parches para el contorno de ojos con péptidos, pensados para refrescar y desinflamar la mirada antes del maquillaje.",
     howto: "Coloca los parches bajo los ojos sobre la piel limpia, déjalos unos minutos y retíralos. Da toquecitos al producto restante.",
@@ -382,6 +426,8 @@ window.FF_PRODUCTS = [
   {
     id: "rhode-glazing-mist", brand: "rhode", name: "Glazing Mist", category: "skincare",
     skin: ["todo"], collections: ["glow"], usd: 30, price: 23000,
+    size: "80 ml (2.7 oz)", includes: "1 atomizador, tamaño grande",
+    notes: ["Rhode está cambiando la botella del tamaño grande: el envase puede variar, la fórmula es la misma."],
     images: [RH + "files/mist-menu-png-2000x2000_bf2f0f50-ad7a-4ffb-bd85-a5dc7ab67aec.png", RH + "files/mini-mist-main.png"],
     description: "Bruma facial hidratante para refrescar la piel y renovar el glow durante el día, incluso sobre el maquillaje.",
     howto: "Rocía a unos 20 cm del rostro después de tu rutina o cada vez que quieras refrescar la piel.",
@@ -390,6 +436,8 @@ window.FF_PRODUCTS = [
   {
     id: "summer-fridays-lip-butter-balm", brand: "summer-fridays", name: "Lip Butter Balm", category: "labios",
     skin: ["todo"], collections: ["mas-pedidas"], usd: 24, price: 19000, badge: "Top Sephora",
+    size: "15 g (0.5 oz)", includes: "1 tubo",
+    notes: ["Textura mantequillosa con brillo suave."],
     images: ["https://cdn.shopify.com/s/files/1/2382/2877/files/Main-LBB-Sugar-Plum.jpg"],
     shades: [
       { name: "Sugar Plum", img: "https://cdn.shopify.com/s/files/1/2382/2877/files/Main-LBB-Sugar-Plum.jpg" },
@@ -408,6 +456,8 @@ window.FF_PRODUCTS = [
   {
     id: "eadem-le-chouchou", brand: "eadem", name: "Le Chouchou Peptide Lip Balm", category: "labios",
     skin: ["todo"], collections: ["mas-pedidas"], usd: 24, price: 19000, badge: "Top Sephora",
+    size: "14 g (0.49 oz)", includes: "1 tubo",
+    notes: ["Bálsamo con péptidos para uso diario."],
     images: ["https://cdn.shopify.com/s/files/1/0512/1661/3529/files/LCC_TUBE_TRANSARENT.png", "https://cdn.shopify.com/s/files/1/0512/1661/3529/files/PDP_LCC_Sakura_03_LipMacro.jpg"],
     shades: [{ name: "Coquito Dulce" }, { name: "Sakura Shaved Ice" }, { name: "Chateau Rose" }, { name: "Guava Fresca" }, { name: "Fig Sauce" }, { name: "Bissap Glaze" }, { name: "Butter Mochi" }, { name: "Churro de Canela" }, { name: "Burnt Malai" }, { name: "Boba Bounce" }],
     description: "Bálsamo labial con péptidos que suaviza y deja un brillo jugoso. Uno de los más vendidos de Sephora.",
@@ -417,6 +467,8 @@ window.FF_PRODUCTS = [
   {
     id: "patrick-ta-major-headlines-blush-duo", brand: "patrick-ta", name: "Major Headlines Double-Take Crème & Powder Blush Duo", category: "rostro",
     skin: ["todo"], collections: ["mas-pedidas"], usd: 40, price: 31000, badge: "Top Sephora",
+    size: "5 g de rubor en crema + 5 g de rubor en polvo", includes: "1 estuche doble",
+    notes: ["Tamaño completo (no es la versión mini)."],
     images: ["https://cdn.shopify.com/s/files/1/0099/0602/8608/files/Major-Headlines-Double-Take-Creme-_-Powder-Blush-Duo-Out-of-Office.jpg", "https://cdn.shopify.com/s/files/1/0099/0602/8608/files/2990125-av-1.png"],
     shades: [{ name: "Out Of Office" }, { name: "Thank Me Later" }, { name: "Soft Launch" }, { name: "She Left Me On Red" }, { name: "She Goes to the Gym" }, { name: "She's Seductive" }, { name: "She Knows Who She Is" }, { name: "Just Enough" }],
     description: "Dúo de rubor en crema y en polvo del mismo tono: la crema da el color y el polvo lo sella para que dure todo el día.",
@@ -426,6 +478,8 @@ window.FF_PRODUCTS = [
   {
     id: "one-size-on-til-dawn", brand: "one-size", name: "On 'Til Dawn Mattifying Waterproof Setting Spray", category: "rostro",
     skin: ["grasa", "mixta", "todo"], collections: ["mas-pedidas"], usd: 36, price: 28000,
+    size: "143 ml (3.4 oz de peso neto)", includes: "1 spray en aerosol, tamaño completo",
+    notes: ["A prueba de agua; fija el maquillaje hasta 16 horas según la marca."],
     images: ["https://cdn.shopify.com/s/files/1/0352/4139/4313/files/On_Til_Dawn_Setting_Spray_FS_v2.jpg", "https://cdn.shopify.com/s/files/1/0352/4139/4313/files/On_Til_Dawn_Setting_Spray_TS_v2.jpg"],
     description: "Spray fijador matificante y a prueba de agua para que el maquillaje aguante el calor y la humedad.",
     howto: "Agita y rocía a unos 20 cm del rostro en forma de X y T al terminar el maquillaje.",
@@ -434,6 +488,8 @@ window.FF_PRODUCTS = [
   {
     id: "innisfree-green-tea-ceramide-mist", brand: "innisfree", name: "Green Tea Ceramide Mist", category: "skincare",
     skin: ["seca", "sensible", "todo"], collections: ["k-beauty"], usd: 17, price: 14000, badge: "K-beauty",
+    size: "90 ml (3.04 oz)", includes: "1 atomizador",
+    notes: ["Con té verde de Jeju y ceramidas."],
     images: ["https://cdn.shopify.com/s/files/1/0089/3367/1012/files/1_IF_GT-CMM-90ml_Packshot_1080x1080_268e45e2-b8f4-4b88-90b5-8e85feaf71e8.jpg"],
     description: "Bruma coreana con té verde de Jeju y ceramidas para hidratar y calmar la piel en cualquier momento del día.",
     howto: "Rocía sobre el rostro limpio o encima del maquillaje para refrescar.",
@@ -442,48 +498,60 @@ window.FF_PRODUCTS = [
 
   /* ===== Nuevos: más vendidos de Yves Rocher (27-sep-2026) ===== */
   {
-    id: "yves-rocher-pur-bleuet-eye-remover", brand: "yves-rocher", name: "Pur Bleuet Express Eye Makeup Remover 200 ml", category: "skincare",
+    id: "yves-rocher-pur-bleuet-eye-remover", brand: "yves-rocher", name: "Pur Bleuet Express Eye Makeup Remover", category: "skincare",
     skin: ["todo"], collections: [], usd: 10.58, price: 9000,
+    size: "200 ml", includes: "1 botella",
+    notes: ["Para todo tipo de piel."],
     images: [YRM + "bWFzdGVyfGltYWdlc3w1NzU1NXxpbWFnZS9qcGVnfHN5c19tYXN0ZXIvaW1hZ2VzL2hkMC9oZDIvMTAzNzAyNjAyMDU1OTh8OWFkMThjNzlhYWNhYTBmOWU5M2VhZTNlMmNhZDk1MmRjNjFjYzVlZjg1YzM4NzRkODlkMTAwOGUxYjE1OWMwYg"],
     description: "El desmaquillante de ojos más vendido de Yves Rocher, con aciano. Retira el maquillaje de ojos, incluso la máscara a prueba de agua.",
     howto: "Agita, humedece un algodón y apóyalo unos segundos sobre el ojo cerrado antes de deslizar.",
     ingredients: "Desmaquillante de ojos con aciano." + INCI, shipping: SHIP
   },
   {
-    id: "yves-rocher-pure-algue-micellar-water", brand: "yves-rocher", name: "Pure Algue Hydrating Micellar Water 400 ml", category: "skincare",
+    id: "yves-rocher-pure-algue-micellar-water", brand: "yves-rocher", name: "Pure Algue Hydrating Micellar Water", category: "skincare",
     skin: ["mixta", "todo"], collections: [], usd: 19.06, price: 16000,
+    size: "400 ml, formato grande", includes: "1 botella",
+    notes: ["Para piel normal a mixta.", "No necesita enjuague."],
     images: [YRM + "bWFzdGVyfGltYWdlc3w5NTExNnxpbWFnZS9qcGVnfHN5c19tYXN0ZXIvaW1hZ2VzL2gzNi9oYTcvMTAzNzAyNTM5NDY5MTB8N2I3NmI5Njc3NGViMTVkNjdlY2Q1NjQ5YThkZTc3YTQ5OWViYmNkY2FjZmRmMzhjMDVmODdiMWMwNmIzMTJhNg"],
     description: "Agua micelar hidratante para limpiar y desmaquillar rostro, ojos y labios en un solo paso. Formato grande.",
     howto: "Aplica con un algodón sobre rostro, ojos y labios. No necesita enjuague.",
     ingredients: "Agua micelar con extractos de algas." + INCI, shipping: SHIP
   },
   {
-    id: "yves-rocher-glow-activating-serum", brand: "yves-rocher", name: "Glow Énergie Glow Activating Serum 30 ml", category: "skincare",
+    id: "yves-rocher-glow-activating-serum", brand: "yves-rocher", name: "Glow Énergie Glow Activating Serum", category: "skincare",
     skin: ["todo"], collections: ["glow"], usd: 35.33, price: 28000,
+    size: "30 ml", includes: "1 frasco con gotero",
+    notes: ["Para las primeras señales de la edad."],
     images: [YRM + "bWFzdGVyfGltYWdlc3w0MzE4NTl8aW1hZ2UvanBlZ3xzeXNfbWFzdGVyL2ltYWdlcy9oN2MvaDBiLzEwMzYzNTA1MTE1MTY2fDE2NGZhNGFiZmI3MmM0MDgyODNjYmRkYzlmYWFmODAzY2FhODE1YzQ2ZWZjOGYzZGQxMzlmNDkwZWQwZGJmN2Y"],
     description: "Sérum iluminador para las primeras señales de la edad. Deja la piel con más luz y aspecto descansado.",
     howto: "Aplica unas gotas mañana y noche sobre la piel limpia, antes de la crema.",
     ingredients: "Sérum facial iluminador." + INCI, shipping: SHIP
   },
   {
-    id: "yves-rocher-riche-creme", brand: "yves-rocher", name: "Riche Crème Intense Regenerating Care 75 ml", category: "skincare",
+    id: "yves-rocher-riche-creme", brand: "yves-rocher", name: "Riche Crème Intense Regenerating Care", category: "skincare",
     skin: ["seca"], collections: [], usd: 48.77, price: 38000,
+    size: "75 ml", includes: "1 envase",
+    notes: ["Para piel madura."],
     images: [YRM + "bWFzdGVyfGltYWdlc3wxNjc1NTN8aW1hZ2UvanBlZ3xzeXNfbWFzdGVyL2ltYWdlcy9oZTIvaGE5LzEwMzYzNTE2NjE2NzM0fGNjY2ExZWEyZTRkZGQyNGY3ZGFjNTk1YTYyNTVlODA1NGRmMGE2Y2UwOWExMDIxNWU3YjE4YjRjMmEzYzAwYmE"],
     description: "Crema nutritiva de textura rica para piel madura. Uno de los clásicos más vendidos de Yves Rocher.",
     howto: "Aplica mañana y noche sobre rostro y cuello con movimientos ascendentes.",
     ingredients: "Crema facial nutritiva para piel madura." + INCI, shipping: SHIP
   },
   {
-    id: "yves-rocher-monoi-pearly-oil", brand: "yves-rocher", name: "Monoï Moisturizing Pearly Oil 100 ml", category: "cuerpo",
+    id: "yves-rocher-monoi-pearly-oil", brand: "yves-rocher", name: "Monoï Moisturizing Pearly Oil", category: "cuerpo",
     skin: ["todo"], collections: ["glow"], usd: 19.06, price: 16000,
+    size: "100 ml", includes: "1 frasco",
+    notes: ["Aceite corporal con brillo nacarado."],
     images: [YRM + "bWFzdGVyfGltYWdlc3w1Njk4NDN8aW1hZ2UvcG5nfHN5c19tYXN0ZXIvaW1hZ2VzL2g3NS9oZWYvMTAzNjM1MzY0NzQxNDJ8MmQ1NGU0ZDM1YzZiNDcxMzc3Mjk0ZDEzYTdhNzdjN2U5YWI0Y2FmNjJiNGM5MzJjZjFiZmM2ZGYxZmUyNDcxYw"],
     description: "Aceite corporal nacarado con aroma a monoï que hidrata y deja la piel con un brillo sutil.",
     howto: "Aplica sobre la piel del cuerpo después de la ducha, en piernas, brazos y escote.",
     ingredients: "Aceite corporal nacarado." + INCI, shipping: SHIP
   },
   {
-    id: "yves-rocher-comme-une-evidence", brand: "yves-rocher", name: "Comme une Évidence Eau de Parfum 50 ml", category: "cuerpo",
+    id: "yves-rocher-comme-une-evidence", brand: "yves-rocher", name: "Comme une Évidence Eau de Parfum", category: "cuerpo",
     skin: ["todo"], collections: [], usd: 41.70, price: 33000,
+    size: "50 ml", includes: "1 frasco con atomizador",
+    notes: ["Eau de parfum."],
     images: [YRM + "bWFzdGVyfGltYWdlc3wxMDAyMjF8aW1hZ2UvanBlZ3xzeXNfbWFzdGVyL2ltYWdlcy9oNzcvaGUwLzEwMzA2MTU3NzQwMDYyfDIyOGU3YzdlNzljMWYwYjhjNzkwMzMwOTdkZjI0ZTBiMTE2ZDYxZTJiYmRkZmQzN2UxMDZkZDY4NjgxZjU3YzY"],
     description: "El perfume femenino emblemático de Yves Rocher, en eau de parfum de 50 ml.",
     howto: "Aplica en cuello y muñecas. Evita frotar para que el aroma dure más.",

@@ -62,6 +62,7 @@
       '<div class="card-body">' +
         '<p class="card-brand">' + esc(FF.brandName(p.brand)) + "</p>" +
         '<h3 class="card-title"><a href="' + FF.url(p) + '">' + esc(p.name) + "</a></h3>" +
+        (p.size ? '<p class="card-size">' + esc(p.size) + "</p>" : "") +
         '<div class="card-meta"><span class="price">' + FF.price(p.price) + compare + "</span>" + FF.stars(p) + "</div>" +
       "</div></article>";
   };
@@ -237,7 +238,7 @@
   function orderText() {
     var lines = cart.map(function (l) {
       var p = byId[l.id];
-      return "- " + l.qty + " x " + FF.fullName(p) + (l.shade ? " (tono " + l.shade + ")" : "") + ": " + FF.price(p.price * l.qty);
+      return "- " + l.qty + " x " + FF.fullName(p) + (p.size ? ", " + p.size : "") + (l.shade ? ", tono " + l.shade : "") + ": " + FF.price(p.price * l.qty);
     });
     return "Hola Femme Fatale, quiero hacer este pedido:\n" + lines.join("\n") +
       "\n\nTotal productos: " + FF.price(total()) +

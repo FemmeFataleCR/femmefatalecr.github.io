@@ -74,6 +74,10 @@
         FF.stars(p, true) +
         '<p class="buy-price">' + FF.price(p.price) + (p.compareAt ? ' <s class="muted" style="font-size:1rem">' + FF.price(p.compareAt) + "</s>" : "") + "</p>" +
         '<p class="buy-lead">' + esc(p.description) + "</p>" +
+        (p.size ? '<dl class="specs"><div><dt>Contenido</dt><dd>' + esc(p.size) + "</dd></div>" +
+          (p.includes ? "<div><dt>Incluye</dt><dd>" + esc(p.includes) + "</dd></div>" : "") + "</dl>" : "") +
+        (p.notes && p.notes.length ? '<div class="notes"><p class="notes-title">Bueno saber</p><ul>' +
+          p.notes.map(function (n) { return "<li>" + esc(n) + "</li>"; }).join("") + "</ul></div>" : "") +
         swatches +
         '<div class="buy-actions">' +
           '<div class="qty" role="group" aria-label="Cantidad"><button type="button" data-q="-1" aria-label="Quitar uno"><i class="ph ph-minus"></i></button><output id="qty" aria-live="polite">1</output><button type="button" data-q="1" aria-label="Agregar uno"><i class="ph ph-plus"></i></button></div>' +
@@ -94,7 +98,7 @@
     '<dialog class="lightbox" id="lightbox" aria-label="Imagen ampliada"><div class="lightbox-scroll"><img id="lightbox-img" src="' + FF.img(p.images[0], 1600) + '" alt="' + esc(fullName) + '" loading="lazy"></div><button class="icon-btn" type="button" data-close aria-label="Cerrar"><i class="ph ph-x"></i></button></dialog>');
 
   /* ---------- WhatsApp con el producto ---------- */
-  function waText() { return "Hola Femme Fatale, me interesa: " + fullName + (shade ? " (tono " + shade + ")" : "") + ", cantidad " + qty + ". ¿Está disponible?"; }
+  function waText() { return "Hola Femme Fatale, me interesa: " + fullName + (p.size ? ", " + p.size : "") + (shade ? ", tono " + shade : "") + ", cantidad " + qty + ". ¿Está disponible?"; }
   function syncWa() {
     $("#wa-product").href = FF.wa(waText());
     $("#wa-fab").href = FF.wa("Hola Femme Fatale, tengo una consulta sobre " + fullName + ".");
