@@ -62,8 +62,6 @@ window.FF_BRANDS = [
   { id: "eadem", name: "EADEM" },
   { id: "patrick-ta", name: "Patrick Ta" },
   { id: "one-size", name: "ONE/SIZE" },
-  { id: "cosrx", name: "COSRX" },
-  { id: "anua", name: "Anua" },
   { id: "skin1004", name: "SKIN1004" },
   { id: "beauty-of-joseon", name: "Beauty of Joseon" },
   { id: "innisfree", name: "innisfree" },
@@ -347,36 +345,6 @@ window.FF_PRODUCTS = [
 
   /* ===== Skincare coreano ===== */
   {
-    id: "cosrx-snail-96-mucin-essence", brand: "cosrx", name: "Advanced Snail 96 Mucin Power Essence", category: "skincare",
-    skin: ["todo", "seca", "sensible"], collections: ["k-beauty", "mas-pedidas"], usd: 25, price: 19000, badge: "K-beauty",
-    size: "100 ml (3.38 fl oz)", includes: "1 frasco con dosificador",
-    notes: ["96 % de filtrado de secreción de caracol."],
-    images: ["https://cdn.shopify.com/s/files/1/0513/3775/6828/files/james_800x1067_1_1_4e9750cc-2cd6-4817-ace5-be2305a85806.jpg", "https://cdn.shopify.com/s/files/1/0513/3775/6828/files/Snail96Essence_8.jpg"],
-    description: "La esencia de baba de caracol que hizo famoso a COSRX. Hidrata, calma y ayuda a la piel a recuperarse.",
-    howto: "Después del tónico, aplica una pequeña cantidad y da toquecitos hasta que se absorba.",
-    ingredients: "96 % filtrado de secreción de caracol." + INCI, shipping: SHIP
-  },
-  {
-    id: "anua-heartleaf-77-toner", brand: "anua", name: "Heartleaf 77% Soothing Toner", category: "skincare",
-    skin: ["grasa", "mixta", "sensible"], collections: ["k-beauty"], usd: 23, price: 18000,
-    size: "250 ml", includes: "1 botella",
-    notes: ["77 % de extracto de heartleaf."],
-    images: ["https://cdn.shopify.com/s/files/1/0753/1429/9158/files/anua-us-toner-heartleaf-77-soothing-toner-1239193744.jpg", "https://cdn.shopify.com/s/files/1/0753/1429/9158/files/anua-us-toner-heartleaf-77-soothing-toner-1161173061.jpg"],
-    description: "Tónico calmante de textura acuosa para pieles sensibles o con tendencia a enrojecerse.",
-    howto: "Después de limpiar, aplica con las manos o un algodón dando toquecitos.",
-    ingredients: "77 % extracto de heartleaf (Houttuynia cordata)." + INCI, shipping: SHIP
-  },
-  {
-    id: "anua-heartleaf-cleansing-oil", brand: "anua", name: "Heartleaf Pore Control Cleansing Oil", category: "skincare",
-    skin: ["grasa", "mixta", "todo"], collections: ["k-beauty"], usd: 22, price: 18000,
-    size: "200 ml", includes: "1 botella con dosificador",
-    notes: ["Primer paso de la doble limpieza: se enjuaga con agua."],
-    images: ["https://cdn.shopify.com/s/files/1/0753/1429/9158/files/anua-us-cleanser-heartleaf-pore-control-cleansing-oil-1239193742.jpg"],
-    description: "Aceite limpiador que disuelve maquillaje y protector solar. El primer paso de la doble limpieza coreana.",
-    howto: "Masajea sobre la piel seca, agrega un poco de agua para emulsionar y enjuaga. Sigue con tu limpiador en espuma.",
-    ingredients: "Aceite limpiador con extracto de heartleaf." + INCI, shipping: SHIP
-  },
-  {
     id: "skin1004-centella-ampoule", brand: "skin1004", name: "Madagascar Centella Ampoule", category: "skincare",
     skin: ["sensible", "grasa", "mixta"], collections: ["k-beauty"], usd: 19.8, price: 17000,
     size: "100 ml", includes: "1 frasco con gotero",
@@ -503,26 +471,6 @@ window.FF_PRODUCTS = [
 
   /* ===== Nuevos: más vendidos de Yves Rocher (27-sep-2026) ===== */
   {
-    id: "yves-rocher-pur-bleuet-eye-remover", brand: "yves-rocher", name: "Pur Bleuet Express Eye Makeup Remover", category: "skincare",
-    skin: ["todo"], collections: [], usd: 10.58, price: 9000,
-    size: "200 ml", includes: "1 botella",
-    notes: ["Para todo tipo de piel."],
-    images: [YRM + "bWFzdGVyfGltYWdlc3w1NzU1NXxpbWFnZS9qcGVnfHN5c19tYXN0ZXIvaW1hZ2VzL2hkMC9oZDIvMTAzNzAyNjAyMDU1OTh8OWFkMThjNzlhYWNhYTBmOWU5M2VhZTNlMmNhZDk1MmRjNjFjYzVlZjg1YzM4NzRkODlkMTAwOGUxYjE1OWMwYg"],
-    description: "El desmaquillante de ojos más vendido de Yves Rocher, con aciano. Retira el maquillaje de ojos, incluso la máscara a prueba de agua.",
-    howto: "Agita, humedece un algodón y apóyalo unos segundos sobre el ojo cerrado antes de deslizar.",
-    ingredients: "Desmaquillante de ojos con aciano." + INCI, shipping: SHIP
-  },
-  {
-    id: "yves-rocher-pure-algue-micellar-water", brand: "yves-rocher", name: "Pure Algue Hydrating Micellar Water", category: "skincare",
-    skin: ["mixta", "todo"], collections: [], usd: 19.06, price: 16000,
-    size: "400 ml, formato grande", includes: "1 botella",
-    notes: ["Para piel normal a mixta.", "No necesita enjuague."],
-    images: [YRM + "bWFzdGVyfGltYWdlc3w5NTExNnxpbWFnZS9qcGVnfHN5c19tYXN0ZXIvaW1hZ2VzL2gzNi9oYTcvMTAzNzAyNTM5NDY5MTB8N2I3NmI5Njc3NGViMTVkNjdlY2Q1NjQ5YThkZTc3YTQ5OWViYmNkY2FjZmRmMzhjMDVmODdiMWMwNmIzMTJhNg"],
-    description: "Agua micelar hidratante para limpiar y desmaquillar rostro, ojos y labios en un solo paso. Formato grande.",
-    howto: "Aplica con un algodón sobre rostro, ojos y labios. No necesita enjuague.",
-    ingredients: "Agua micelar con extractos de algas." + INCI, shipping: SHIP
-  },
-  {
     id: "yves-rocher-glow-activating-serum", brand: "yves-rocher", name: "Glow Énergie Glow Activating Serum", category: "skincare",
     skin: ["todo"], collections: ["glow"], usd: 35.33, price: 28000,
     size: "30 ml", includes: "1 frasco con gotero",
@@ -577,7 +525,7 @@ window.FF_IG_POSTS = [
   { img: "assets/img/rhode-lip-tint.webp", alt: "Rhode Peptide Lip Tint en cuatro tonos", product: "rhode-peptide-lip-tint" },
   { img: "1623039497550-c4f2ccc7b875", alt: "Retrato con luz roja y azul", product: "rare-beauty-soft-pinch-liquid-blush" },
   { img: "assets/img/rhode-pocket-blush.webp", alt: "Rhode Pocket Blush en varios tonos", product: "rhode-pocket-blush" },
-  { img: "1774897795863-679e3a2826a7", alt: "Retrato con cuello de tortuga negro y cabello al viento", product: "cosrx-snail-96-mucin-essence" },
+  { img: "1774897795863-679e3a2826a7", alt: "Retrato con cuello de tortuga negro y cabello al viento", product: "rhode-peptide-glazing-fluid" },
   { img: "assets/img/rhode-highlight-milk.webp", alt: "Rhode Highlight Milk en tonos cálidos", product: "rhode-highlight-milk" },
   { img: "assets/img/rhode-pocket-bronze.webp", alt: "Rhode Pocket Bronze en tonos café", product: "rhode-pocket-bronze" }
 ];

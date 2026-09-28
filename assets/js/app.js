@@ -137,7 +137,7 @@
             '<a href="' + FF.wa("Hola Femme Fatale, tengo una consulta.") + '" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a></div></div>' +
         "</div>" +
       "</div>" +
-      '<p class="brand-note">Femme Fatale CR es una tienda independiente. Rhode, Rare Beauty, Summer Fridays, EADEM, Patrick Ta, ONE/SIZE, COSRX, Anua, SKIN1004, Beauty of Joseon, innisfree y Yves Rocher son marcas registradas de sus respectivos dueños; no estamos afiliadas a ellas ni somos su distribuidora oficial.</p>' +
+      '<p class="brand-note">Femme Fatale CR es una tienda independiente. Rhode, Rare Beauty, Summer Fridays, EADEM, Patrick Ta, ONE/SIZE, SKIN1004, Beauty of Joseon, innisfree y Yves Rocher son marcas registradas de sus respectivos dueños; no estamos afiliadas a ellas ni somos su distribuidora oficial.</p>' +
       '<div class="footer-base"><span>© ' + year + " Femme Fatale CR</span><span>Pagos por SINPE Móvil y transferencia</span></div>" +
     "</div></footer>" +
     '<a class="wa-fab" id="wa-fab" href="' + FF.wa("Hola Femme Fatale, tengo una consulta.") + '" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" data-tip="¿Dudas? Escríbenos"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i></a>';
@@ -305,7 +305,7 @@
     var term = norm(q.trim());
     if (!term) {
       box.innerHTML = '<p class="search-hint">Búsquedas populares</p><div class="chips">' +
-        ["Rhode", "Rare Beauty", "Blush", "Lip", "COSRX", "SPF"].map(function (t) { return '<button class="chip" type="button" data-term="' + t + '">' + t + "</button>"; }).join("") + "</div>";
+        ["Rhode", "Rare Beauty", "Blush", "Lip", "SKIN1004", "SPF"].map(function (t) { return '<button class="chip" type="button" data-term="' + t + '">' + t + "</button>"; }).join("") + "</div>";
       return;
     }
     var hits = P.filter(function (p) { return norm(FF.fullName(p) + " " + FF.catName(p.category) + " " + p.description + " " + (p.shades || []).map(function (s) { return s.name; }).join(" ")).indexOf(term) > -1; });
