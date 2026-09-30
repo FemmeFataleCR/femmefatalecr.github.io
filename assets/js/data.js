@@ -11,7 +11,10 @@ window.FF_CONFIG = {
   email: "hola@femmefatalecr.com", // PENDIENTE: correo real
   city: "Heredia, Costa Rica",
 
-  // PRECIOS: `price` en cada producto es el precio aprobado SIN IVA (lista de
+  // PRECIOS: `final` (opcional) fija el precio al público de un producto por
+  // ajuste de mercado (comparación con Be Beauty y Hi Beauty, 30-sep-2026) y
+  // tiene prioridad sobre la regla de abajo.
+  // `price` en cada producto es el precio aprobado SIN IVA (lista de
   // precios del 27-sep-2026), la misma base del margen en el Excel. La tienda
   // muestra price × (1 + iva), redondeado hacia arriba a `priceRound`; el
   // precio sin IVA queda disponible como `base`. `usd` es el costo: precio oficial de
@@ -122,7 +125,7 @@ window.FF_PRODUCTS = [
   /* ===== Rhode ===== */
   {
     id: "rhode-peptide-lip-tint", brand: "rhode", name: "Peptide Lip Tint", category: "labios",
-    skin: ["todo"], collections: ["mas-pedidas", "glow"], usd: 20, price: 17000, badge: "Favorito",
+    skin: ["todo"], collections: ["mas-pedidas", "glow"], usd: 20, price: 17000, final: 17000, badge: "Favorito",
     size: "10 ml (0.3 fl oz)", includes: "1 tubo",
     notes: ["Acabado brillante con un toque de color translúcido."],
     images: [RH + "files/flatlay-square.png", "assets/img/rhode-lip-tint.webp"],
@@ -158,7 +161,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "rhode-pocket-blush", brand: "rhode", name: "Pocket Blush", category: "rostro",
-    skin: ["todo"], collections: ["mas-pedidas", "glow"], usd: 25, price: 19000, badge: "Más pedido",
+    skin: ["todo"], collections: ["mas-pedidas", "glow"], usd: 25, price: 19000, final: 19000, badge: "Más pedido",
     size: "5.3 g (0.18 oz)", includes: "1 barra de rubor en crema",
     notes: ["Sirve para mejillas y labios.", "Acabado satinado y luminoso."],
     images: [RH + "files/teacup-main.png", "assets/img/rhode-pocket-blush.webp"],
@@ -176,7 +179,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "rhode-pocket-bronze", brand: "rhode", name: "Pocket Bronze", category: "rostro",
-    skin: ["todo"], collections: ["glow"], usd: 25, price: 19000, badge: "Nuevo",
+    skin: ["todo"], collections: ["glow"], usd: 25, price: 19000, final: 19000, badge: "Nuevo",
     size: "5.3 g (0.18 oz)", includes: "1 barra de bronceador en crema",
     notes: ["Color construible que se difumina con los dedos."],
     images: [RH + "files/sunbed-main.png", "assets/img/rhode-pocket-bronze.webp"],
@@ -194,7 +197,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "rhode-highlight-milk", brand: "rhode", name: "Highlight Milk", category: "rostro",
-    skin: ["todo"], collections: ["glow"], usd: 28, price: 21000, badge: "Nuevo",
+    skin: ["todo"], collections: ["glow"], usd: 28, price: 21000, final: 20000, badge: "Nuevo",
     size: "65 ml (2.2 fl oz)", includes: "1 frasco",
     notes: ["Iluminador líquido para rostro y cuerpo, hecho con la fórmula del Glazing Milk."],
     images: [RH + "files/highlight-milk-2-main.png", "assets/img/rhode-highlight-milk.webp"],
@@ -242,7 +245,7 @@ window.FF_PRODUCTS = [
   /* ===== Rare Beauty ===== */
   {
     id: "rare-beauty-soft-pinch-liquid-blush", brand: "rare-beauty", name: "Soft Pinch Liquid Blush", category: "rostro",
-    skin: ["todo"], collections: ["mas-pedidas"], usd: 25, price: 19000, badge: "Más pedido",
+    skin: ["todo"], collections: ["mas-pedidas"], usd: 25, price: 19000, final: 19500, badge: "Más pedido",
     size: "7.5 ml (0.25 fl oz)", includes: "1 frasco con aplicador",
     notes: ["Un punto por mejilla es suficiente.", "Dura hasta 12 horas según la marca.", "Vegano y libre de crueldad animal, sin parabenos (según Rare Beauty)."],
     images: [RB + "files/ECOMM-SP-LIQUID-BLUSH-DEWY-HOPE.jpg", RB + "files/SWATCH-SP-LIQUID-BLUSH-DEWY-HOPE.png"],
@@ -297,9 +300,9 @@ window.FF_PRODUCTS = [
   },
   {
     id: "rare-beauty-soft-pinch-tinted-lip-oil", brand: "rare-beauty", name: "Soft Pinch Tinted Lip Oil", category: "labios",
-    skin: ["todo"], collections: ["mas-pedidas"], usd: 24, price: 19000,
+    skin: ["todo"], collections: [], usd: 24, price: 19000, badge: "Por encargo",
     size: "3 ml (0.10 fl oz)", includes: "1 tubo con aplicador",
-    notes: ["Empieza como jalea y se transforma en aceite ligero.", "Vegano y libre de crueldad animal, sin parabenos (según Rare Beauty)."],
+    notes: ["Por encargo: te confirmamos disponibilidad y plazo de entrega por WhatsApp antes de pagar.", "Empieza como jalea y se transforma en aceite ligero.", "Vegano y libre de crueldad animal, sin parabenos (según Rare Beauty)."],
     images: [RB + "products/soft-pinch-tinted-lip-oil-serenity-1440x1952.jpg", RB + "products/soft-pinch-tinted-lip-oil-macro-lip-serenity-1440x1952.jpg"],
     shades: [
       { name: "Serenity", img: RB + "products/soft-pinch-tinted-lip-oil-serenity-1440x1952.jpg" },
@@ -367,9 +370,9 @@ window.FF_PRODUCTS = [
   /* ===== Skincare coreano ===== */
   {
     id: "skin1004-centella-ampoule", brand: "skin1004", name: "Madagascar Centella Ampoule", category: "skincare",
-    skin: ["sensible", "grasa", "mixta"], collections: ["k-beauty"], usd: 19.8, price: 17000,
+    skin: ["sensible", "grasa", "mixta"], collections: ["k-beauty"], usd: 19.8, price: 17000, badge: "Por encargo",
     size: "100 ml", includes: "1 frasco con gotero",
-    notes: ["Formato grande de 100 ml."],
+    notes: ["Por encargo: te confirmamos disponibilidad y plazo de entrega por WhatsApp antes de pagar.", "Formato grande de 100 ml."],
     images: ["https://cdn.shopify.com/s/files/1/0590/4538/0253/products/skin1004-ampoule-serum-centella-ampoule-38409088401654.jpg"],
     description: "Ampolla ligera que calma la piel irritada. Un clásico coreano para pieles sensibles.",
     howto: "Aplica unas gotas después del tónico y da toquecitos hasta que se absorba.",
@@ -429,7 +432,7 @@ window.FF_PRODUCTS = [
   },
   {
     id: "summer-fridays-lip-butter-balm", brand: "summer-fridays", name: "Lip Butter Balm", category: "labios",
-    skin: ["todo"], collections: ["mas-pedidas"], usd: 24, price: 19000, badge: "Top Sephora",
+    skin: ["todo"], collections: ["mas-pedidas"], usd: 24, price: 19000, final: 19500, badge: "Top Sephora",
     size: "15 g (0.5 oz)", includes: "1 tubo",
     notes: ["Textura mantequillosa con brillo suave."],
     images: ["https://cdn.shopify.com/s/files/1/2382/2877/files/Main-LBB-Sugar-Plum.jpg"],
@@ -460,9 +463,9 @@ window.FF_PRODUCTS = [
   },
   {
     id: "patrick-ta-major-headlines-blush-duo", brand: "patrick-ta", name: "Major Headlines Double-Take Crème & Powder Blush Duo", category: "rostro",
-    skin: ["todo"], collections: ["mas-pedidas"], usd: 40, price: 31000, badge: "Top Sephora",
+    skin: ["todo"], collections: [], usd: 40, price: 31000, badge: "Por encargo",
     size: "5 g de rubor en crema + 5 g de rubor en polvo", includes: "1 estuche doble",
-    notes: ["Tamaño completo (no es la versión mini)."],
+    notes: ["Por encargo: te confirmamos disponibilidad y plazo de entrega por WhatsApp antes de pagar.", "Tamaño completo (no es la versión mini)."],
     images: ["https://cdn.shopify.com/s/files/1/0099/0602/8608/files/Major-Headlines-Double-Take-Creme-_-Powder-Blush-Duo-Out-of-Office.jpg", "https://cdn.shopify.com/s/files/1/0099/0602/8608/files/2990125-av-1.png"],
     shades: [{ name: "Out Of Office" }, { name: "Thank Me Later" }, { name: "Soft Launch" }, { name: "She Left Me On Red" }, { name: "She Goes to the Gym" }, { name: "She's Seductive" }, { name: "She Knows Who She Is" }, { name: "Just Enough" }],
     description: "Dúo de rubor en crema y en polvo del mismo tono: la crema da el color y el polvo lo sella para que dure todo el día.",
@@ -471,9 +474,9 @@ window.FF_PRODUCTS = [
   },
   {
     id: "one-size-on-til-dawn", brand: "one-size", name: "On 'Til Dawn Mattifying Waterproof Setting Spray", category: "rostro",
-    skin: ["grasa", "mixta", "todo"], collections: ["mas-pedidas"], usd: 36, price: 28000,
+    skin: ["grasa", "mixta", "todo"], collections: [], usd: 36, price: 28000, badge: "Por encargo",
     size: "143 ml (3.4 oz de peso neto)", includes: "1 spray en aerosol, tamaño completo",
-    notes: ["A prueba de agua; fija el maquillaje hasta 16 horas según la marca."],
+    notes: ["Por encargo: te confirmamos disponibilidad y plazo de entrega por WhatsApp antes de pagar.", "A prueba de agua; fija el maquillaje hasta 16 horas según la marca."],
     images: ["https://cdn.shopify.com/s/files/1/0352/4139/4313/files/On_Til_Dawn_Setting_Spray_FS_v2.jpg", "https://cdn.shopify.com/s/files/1/0352/4139/4313/files/On_Til_Dawn_Setting_Spray_TS_v2.jpg"],
     description: "Spray fijador matificante y a prueba de agua para que el maquillaje aguante el calor y la humedad.",
     howto: "Agita y rocía a unos 20 cm del rostro en forma de X y T al terminar el maquillaje.",
@@ -540,7 +543,7 @@ window.FF_PRODUCTS.forEach(function (p) {
   if (!p.price) p.price = Math.round(p.usd * window.FF_CONFIG.usdRate / 100) * 100;
   p.base = p.price;
   var step = window.FF_CONFIG.priceRound || 100;
-  p.price = Math.ceil(p.base * (1 + (window.FF_CONFIG.iva || 0)) / step) * step;
+  p.price = p.final || Math.ceil(p.base * (1 + (window.FF_CONFIG.iva || 0)) / step) * step;
 });
 
 /* Cuadrícula de Instagram cuando no hay feed en vivo. `product` enlaza la

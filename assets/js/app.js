@@ -332,7 +332,7 @@
     var term = norm(q.trim());
     if (!term) {
       box.innerHTML = '<p class="search-hint">Búsquedas populares</p><div class="chips">' +
-        ["Rhode", "Rare Beauty", "Blush", "Lip", "SKIN1004", "SPF"].map(function (t) { return '<button class="chip" type="button" data-term="' + t + '">' + t + "</button>"; }).join("") + "</div>";
+        ["Rhode", "Rare Beauty", "Blush", "Lip", "Yves Rocher", "SPF"].map(function (t) { return '<button class="chip" type="button" data-term="' + t + '">' + t + "</button>"; }).join("") + "</div>";
       return;
     }
     var hits = P.filter(function (p) { return norm(FF.fullName(p) + " " + FF.catName(p.category) + " " + p.description + " " + (p.shades || []).map(function (s) { return s.name; }).join(" ")).indexOf(term) > -1; });
