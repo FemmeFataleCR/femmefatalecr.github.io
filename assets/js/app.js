@@ -138,7 +138,7 @@
         "</div>" +
       "</div>" +
       '<p class="brand-note">Femme Fatale CR es una tienda independiente. Rhode, Rare Beauty, Summer Fridays, EADEM, Patrick Ta, ONE/SIZE, SKIN1004, Beauty of Joseon, innisfree y Yves Rocher son marcas registradas de sus respectivos dueños; no estamos afiliadas a ellas ni somos su distribuidora oficial.</p>' +
-      '<div class="footer-base"><span>© ' + year + " Femme Fatale CR</span><span>Pagos por SINPE Móvil y transferencia</span></div>" +
+      '<div class="footer-base"><span>© ' + year + " Femme Fatale CR</span><span>" + (C.ivaRegistered ? "Precios con IVA incluido · " : "") + "Pagos por SINPE Móvil y transferencia</span></div>" +
     "</div></footer>" +
     '<a class="wa-fab" id="wa-fab" href="' + FF.wa("Hola Femme Fatale, tengo una consulta.") + '" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" data-tip="¿Dudas? Escríbenos"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i></a>';
 
@@ -216,6 +216,10 @@
   var save = function () { store.set("ff_cart", cart); updateCount(); };
   var count = function () { return cart.reduce(function (a, l) { return a + l.qty; }, 0); };
   var total = function () { return cart.reduce(function (a, l) { return a + byId[l.id].price * l.qty; }, 0); };
+  var ships = C.shipping || [];
+  var shipId = store.get("ff_ship", "");
+  var ship = function () { return ships.filter(function (s) { return s.id === shipId; })[0]; };
+  var shipCost = function (s) { return s.cost == null ? "A coordinar" : s.cost === 0 ? "Gratis" : FF.price(s.cost); };
 
   function updateCount(bump) {
     var el = $("#cart-count"), n = count();
@@ -240,9 +244,28 @@
       var p = byId[l.id];
       return "- " + l.qty + " x " + FF.fullName(p) + (p.size ? ", " + p.size : "") + (l.shade ? ", tono " + l.shade : "") + ": " + FF.price(p.price * l.qty);
     });
-    return "Hola Femme Fatale, quiero hacer este pedido:\n" + lines.join("\n") +
-      "\n\nTotal productos: " + FF.price(total()) +
-      "\n\nNombre:\nEntrega (personal en Heredia o envío por Correos):\nDirección:";
+    var s = ship(), text = "Hola Femme Fatale, quiero hacer este pedido:\n" + lines.join("\n") +
+      "\n\nProductos" + (C.ivaRegistered ? " (IVA incluido)" : "") + ": " + FF.price(total());
+    if (!s) return text + "\nEnvío: por definir (Correos de Costa Rica o entrega personal en Heredia)\n\nNombre:\nDirección:";
+    text += "\nEnvío, " + s.label + ": " + shipCost(s);
+    if (s.cost != null) text += "\nTotal a pagar: " + FF.price(total() + s.cost);
+    return text + "\n\nNombre:\n" + (s.local ? "Punto de entrega preferido:" : "Dirección (provincia, cantón, distrito y señas):");
+  }
+
+  function shipField() {
+    return '<fieldset class="ship"><legend>Entrega</legend>' + ships.map(function (o) {
+      return '<label class="ship-opt"><input type="radio" name="ship" value="' + o.id + '"' + (o.id === shipId ? " checked" : "") + ">" +
+        "<span><b>" + esc(o.label) + "</b><small>" + esc(o.note) + "</small></span><strong>" + shipCost(o) + "</strong></label>";
+    }).join("") + '<p class="foot-note">Tarifas de Correos para paquetes de hasta ' + (C.shippingMaxKg || 1) + " kg. Si tu pedido pesa más, te confirmamos el costo.</p></fieldset>";
+  }
+
+  function cartFoot() {
+    var s = ship();
+    return '<div class="totals"><div class="subtotal"><span>Productos</span><strong>' + FF.price(total()) + "</strong></div>" +
+      '<div class="subtotal"><span>Envío</span><strong>' + (s ? shipCost(s) : "Elige una opción") + "</strong></div>" +
+      (s && s.cost != null ? '<div class="subtotal subtotal--total"><span>Total</span><strong>' + FF.price(total() + s.cost) + "</strong></div>" : "") + "</div>" +
+      '<p class="foot-note">' + (C.ivaRegistered ? "Precios con IVA incluido. " : "") + "Pagas por SINPE Móvil o transferencia al confirmar el pedido.</p>" +
+      '<a class="btn btn--block btn--wa" href="' + FF.wa(orderText()) + '" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i><span>Finalizar por WhatsApp</span></a>';
   }
 
   function renderCart() {
@@ -261,12 +284,16 @@
         '<div class="li-row"><div class="qty" role="group" aria-label="Cantidad"><button type="button" data-qty="-1" data-i="' + i + '" aria-label="Quitar uno"><i class="ph ph-minus"></i></button><output aria-live="polite">' + l.qty + '</output><button type="button" data-qty="1" data-i="' + i + '" aria-label="Agregar uno"><i class="ph ph-plus"></i></button></div>' +
         '<span class="price">' + FF.price(p.price * l.qty) + "</span></div>" +
         '<button class="li-remove" type="button" data-remove="' + i + '">Eliminar</button></div></div>';
-    }).join("");
-    foot.innerHTML = '<div class="subtotal"><span>Subtotal</span><strong>' + FF.price(total()) + "</strong></div>" +
-      '<p class="foot-note">El envío se confirma según tu ubicación. Pagas por SINPE Móvil o transferencia al confirmar el pedido.</p>' +
-      '<a class="btn btn--block btn--wa" href="' + FF.wa(orderText()) + '" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i><span>Finalizar por WhatsApp</span></a>';
+    }).join("") + shipField();
+    foot.innerHTML = cartFoot();
   }
   FF.renderCart = renderCart;
+
+  $("#cart").addEventListener("change", function (e) {
+    if (e.target.name !== "ship") return;
+    shipId = e.target.value; store.set("ff_ship", shipId);
+    $("#cart-foot").innerHTML = cartFoot();
+  });
 
   $("#cart").addEventListener("click", function (e) {
     var q = e.target.closest("[data-qty]"), r = e.target.closest("[data-remove]");

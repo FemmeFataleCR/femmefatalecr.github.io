@@ -54,7 +54,7 @@
       : '<div class="empty" style="grid-column:1/-1"><i class="ph ph-sparkle" aria-hidden="true"></i><h3>Ningún producto coincide</h3><p>Quita algún filtro o pregúntanos por WhatsApp: tenemos más de lo que cabe aquí.</p><button class="btn btn--ghost" type="button" data-clear><span>Borrar filtros</span></button></div>';
     FF.reveal(grid);
 
-    $("#count").textContent = list.length + (list.length === 1 ? " producto" : " productos");
+    $("#count").textContent = list.length + (list.length === 1 ? " producto" : " productos") + (window.FF_CONFIG.ivaRegistered ? " · IVA incluido" : "");
     $("#apply-filters span").textContent = "Ver " + list.length + (list.length === 1 ? " producto" : " productos");
     $("#filters-desktop").innerHTML = filtersHTML("d");
     $("#filters-mobile").innerHTML = filtersHTML("m");

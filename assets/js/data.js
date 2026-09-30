@@ -11,11 +11,32 @@ window.FF_CONFIG = {
   email: "hola@femmefatalecr.com", // PENDIENTE: correo real
   city: "Heredia, Costa Rica",
 
-  // PRECIOS: `price` es el precio de venta en colones (lista de precios del
-  // 27-sep-2026: 4 precios reales del P&L + 17 propuestos con la misma lógica).
-  // `usd` es el costo: precio oficial de la marca en EE. UU. Si un producto no
-  // tiene `price`, se calcula como usd × usdRate, redondeado a los ₡100.
+  // PRECIOS: `price` en cada producto es el precio aprobado SIN IVA (lista de
+  // precios del 27-sep-2026), la misma base del margen en el Excel. La tienda
+  // muestra price × (1 + iva), redondeado hacia arriba a `priceRound`; el
+  // precio sin IVA queda disponible como `base`. `usd` es el costo: precio oficial de
+  // la marca en EE. UU. Si un producto no tiene `price`, se calcula como
+  // usd × usdRate, redondeado a los ₡100.
   usdRate: 510, // PENDIENTE: tipo de cambio de referencia
+  iva: 0.13,
+  priceRound: 500,
+  // false mientras Femme Fatale no esté inscrita como contribuyente del IVA
+  // en Hacienda: los precios ya llevan el 13 %, pero el sitio no dice "IVA
+  // incluido". Cambiar a true el día de la inscripción.
+  ivaRegistered: false,
+
+  // ENVÍO: se cobra aparte del precio de los productos. Tarifas de Correos de
+  // Costa Rica, Pymexpress plan Emprendedor, origen Heredia, primer kilo
+  // (correos.go.cr, sin IVA: ₡2 005,53 dentro de la GAM y ₡2 741,70 hacia el
+  // resto del país) más 13 % de IVA, redondeadas hacia arriba a los ₡100.
+  // cost: 0 = gratis; null = el costo se coordina por WhatsApp.
+  // local: true = entrega en persona (se pide punto de entrega, no dirección).
+  shipping: [
+    { id: "gam", label: "Correos de Costa Rica · GAM", note: "Gran Área Metropolitana. Entrega al día hábil siguiente al despacho.", cost: 2300 },
+    { id: "resto", label: "Correos de Costa Rica · Resto del país", note: "Fuera de la GAM. Hasta 3 días hábiles después del despacho.", cost: 3100 },
+    { id: "heredia", label: "Entrega personal en Heredia", note: "Punto y hora se coordinan por WhatsApp.", cost: 0, local: true }
+  ],
+  shippingMaxKg: 1,
 
   // Feed de Instagram en vivo (opcional). Con una cuenta gratuita de behold.so
   // se obtiene una URL JSON; al pegarla aquí la cuadrícula muestra las
@@ -91,8 +112,8 @@ window.FF_COLLECTIONS = [
 var RH = "https://cdn.shopify.com/s/files/1/0606/5451/8510/";
 var RB = "https://cdn.shopify.com/s/files/1/0314/1143/7703/";
 var YRM = "https://medias.yvesrocher.ca/medias/?context=";
-var SHIP = "Entrega personal en Heredia o envío por Correos de Costa Rica a todo el país. " +
-  "El costo del envío se confirma por WhatsApp según el destino. " +
+var SHIP = "El envío se cobra aparte: por Correos de Costa Rica ₡2 300 dentro de la GAM y ₡3 100 al resto del país " +
+  "(paquetes de hasta 1 kg). La entrega personal en Heredia es gratuita y se coordina por WhatsApp. " +
   "Cambios dentro de los 7 días posteriores a la entrega si el producto está sellado y sin uso.";
 var INCI = " La lista completa de ingredientes (INCI) viene impresa en el empaque.";
 var RB_NOTE = " Rare Beauty declara todas sus fórmulas veganas y libres de crueldad animal.";
@@ -517,6 +538,9 @@ window.FF_PRODUCTS.forEach(function (p) {
   if (p.rating == null) p.rating = 0;
   if (p.reviews == null) p.reviews = 0;
   if (!p.price) p.price = Math.round(p.usd * window.FF_CONFIG.usdRate / 100) * 100;
+  p.base = p.price;
+  var step = window.FF_CONFIG.priceRound || 100;
+  p.price = Math.ceil(p.base * (1 + (window.FF_CONFIG.iva || 0)) / step) * step;
 });
 
 /* Cuadrícula de Instagram cuando no hay feed en vivo. `product` enlaza la

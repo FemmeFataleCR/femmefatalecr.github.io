@@ -72,7 +72,7 @@
         "<h1>" + esc(p.name) + "</h1>" +
         (p.badge ? '<p class="label muted" style="margin-top:10px">' + esc(p.badge) + "</p>" : "") +
         FF.stars(p, true) +
-        '<p class="buy-price">' + FF.price(p.price) + (p.compareAt ? ' <s class="muted" style="font-size:1rem">' + FF.price(p.compareAt) + "</s>" : "") + "</p>" +
+        '<p class="buy-price">' + FF.price(p.price) + (p.compareAt ? ' <s class="muted" style="font-size:1rem">' + FF.price(p.compareAt) + "</s>" : "") + (window.FF_CONFIG.ivaRegistered ? ' <span class="buy-tax">IVA incluido</span>' : "") + "</p>" +
         '<p class="buy-lead">' + esc(p.description) + "</p>" +
         (p.size ? '<dl class="specs"><div><dt>Contenido</dt><dd>' + esc(p.size) + "</dd></div>" +
           (p.includes ? "<div><dt>Incluye</dt><dd>" + esc(p.includes) + "</dd></div>" : "") + "</dl>" : "") +
@@ -85,8 +85,8 @@
           '<a class="btn btn--ghost" id="wa-product" target="_blank" rel="noopener" href="#" style="grid-column:1/-1"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i><span>Pedir por WhatsApp</span></a>' +
         "</div>" +
         '<ul class="buy-perks">' +
-          '<li><i class="ph ph-truck" aria-hidden="true"></i>Envíos a todo Costa Rica por Correos</li>' +
-          '<li><i class="ph ph-map-pin" aria-hidden="true"></i>Entrega personal en Heredia</li>' +
+          '<li><i class="ph ph-truck" aria-hidden="true"></i>Envíos por Correos de Costa Rica desde ₡2 300, se cobran aparte</li>' +
+          '<li><i class="ph ph-map-pin" aria-hidden="true"></i>Entrega personal gratis en Heredia</li>' +
           '<li><i class="ph ph-device-mobile" aria-hidden="true"></i>Paga con SINPE Móvil o transferencia</li>' +
         "</ul>" +
         '<div class="accordion">' + acc + "</div>" +
