@@ -6,8 +6,9 @@ descripciones, imágenes o precios):
     python _herramientas/generar_seo.py
 
 Lee el catálogo directamente de data.js (con Node), así que las páginas, el
-sitemap y llms.txt no pueden quedar desalineados con la tienda. Jekyll no
-publica carpetas que empiezan con "_", por eso este script no queda en línea.
+sitemap y llms.txt no pueden quedar desalineados con la tienda. El sitio usa
+.nojekyll, así que esta carpeta sí se publica (el repositorio es público de
+todos modos); robots.txt la excluye de los buscadores.
 """
 import datetime, html, json, os, re, subprocess, sys
 
@@ -114,7 +115,7 @@ def sitemap(products):
 
 
 def robots():
-    return ("User-agent: *\nAllow: /\nDisallow: /marca/\n\n"
+    return ("User-agent: *\nAllow: /\nDisallow: /marca/\nDisallow: /_herramientas/\n\n"
             f"Sitemap: {SITE}sitemap.xml\n")
 
 
