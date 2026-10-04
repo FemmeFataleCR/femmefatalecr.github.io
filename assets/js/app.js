@@ -23,7 +23,7 @@
   FF.img = window.ffImg;
   FF.srcset = function (id, ratio) {
     if (id.indexOf("/") > -1 && !/^https?:/.test(id)) return "";
-    return [360, 540, 720, 960].map(function (w) { return FF.img(id, w, ratio) + " " + w + "w"; }).join(", ");
+    return [240, 360, 540, 720, 960].map(function (w) { return FF.img(id, w, ratio) + " " + w + "w"; }).join(", ");
   };
   FF.brandName = function (id) { var b = (window.FF_BRANDS || []).filter(function (x) { return x.id === id; })[0]; return b ? b.name : ""; };
   FF.fullName = function (p) { return FF.brandName(p.brand) + " " + p.name; };
@@ -31,7 +31,10 @@
     var s = (p.shades || []).filter(function (x) { return x.name === shade; })[0];
     return (s && s.img) || p.images[0];
   };
-  FF.url = function (p) { return "producto.html?p=" + encodeURIComponent(p.id); };
+  FF.url = function (p) { return "productos/" + encodeURIComponent(p.id) + ".html"; };
+  // Anclas de la misma página: las páginas de producto usan <base href="../">,
+  // así que "#x" a secas apuntaría a la portada.
+  FF.here = function (hash) { return location.pathname + location.search + hash; };
   FF.catName = function (id) { var c = window.FF_CATEGORIES.filter(function (x) { return x.id === id; })[0]; return c ? c.name : ""; };
   FF.wa = function (text) { return "https://wa.me/" + C.whatsapp + "?text=" + encodeURIComponent(text); };
   FF.reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -45,19 +48,21 @@
   FF.stars = function (p, withLink) {
     if (!p.reviews) return "";
     var pct = Math.round((p.rating / 5) * 100);
-    var count = withLink ? '<a href="#resenas">' + p.reviews + " reseñas</a>" : "(" + p.reviews + ")";
+    var count = withLink ? '<a href="' + FF.here("#resenas") + '">' + p.reviews + " reseñas</a>" : "(" + p.reviews + ")";
     return '<span class="stars"><span class="stars-row" role="img" aria-label="' + p.rating.toFixed(1) + ' de 5 estrellas"><i style="width:' + pct + '%"></i></span>' + count + "</span>";
   };
 
+  var canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   FF.card = function (p, i) {
+    var first = (i || 0) < 2 && !document.body.hasAttribute("data-product");
     var badge = p.badge ? '<span class="card-badge">' + esc(p.badge) + "</span>" : "";
     var compare = p.compareAt ? "<s>" + FF.price(p.compareAt) + "</s>" : "";
-    var alt = p.images[1] ? '<img class="img-alt" src="' + FF.img(p.images[1], 540) + '" srcset="' + FF.srcset(p.images[1]) + '" sizes="(min-width:1024px) 24vw, 50vw" alt="" aria-hidden="true" loading="lazy" decoding="async" width="540" height="675">' : "";
+    var alt = p.images[1] && canHover ? '<img class="img-alt" src="' + FF.img(p.images[1], 540) + '" srcset="' + FF.srcset(p.images[1]) + '" sizes="(min-width:1024px) 24vw, 50vw" alt="" aria-hidden="true" loading="lazy" decoding="async" width="540" height="675">' : "";
     return '<article class="card reveal" style="--i:' + (i || 0) + '">' +
       '<div class="card-media">' + badge +
-        '<img src="' + FF.img(p.images[0], 540) + '" srcset="' + FF.srcset(p.images[0]) + '" sizes="(min-width:1024px) 24vw, 50vw" alt="' + esc(FF.fullName(p)) + '" loading="lazy" decoding="async" width="540" height="675">' +
+        '<img src="' + FF.img(p.images[0], 540) + '" srcset="' + FF.srcset(p.images[0]) + '" sizes="(min-width:1024px) 24vw, 50vw" alt="' + esc(FF.fullName(p)) + '"' + (first ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async" width="540" height="675">' +
         alt +
-        '<button class="quick-add" type="button" data-add="' + p.id + '" aria-label="Agregar ' + esc(FF.fullName(p)) + ' al carrito"><i class="ph ph-plus" aria-hidden="true"></i><span>Agregar rápido</span></button>' +
+        '<button class="quick-add" type="button" data-add="' + p.id + '" aria-label="Agregar rápido: ' + esc(FF.fullName(p)) + '"><i class="ph ph-plus" aria-hidden="true"></i><span>Agregar rápido</span></button>' +
       "</div>" +
       '<div class="card-body">' +
         '<p class="card-brand">' + esc(FF.brandName(p.brand)) + "</p>" +
@@ -68,7 +73,7 @@
   };
 
   /* ---------- Shell: header, menú, búsqueda, carrito, footer ---------- */
-  var LOGO = FF.logo = '<span class="logo-mark"><span class="logo-f">F</span><span class="logo-emme">EMME</span><span class="logo-star" aria-hidden="true"></span></span><span class="logo-caps">Fatale</span>';
+  var LOGO = FF.logo = '<span class="logo-mark"><span class="logo-f">F</span><span class="logo-emme">EMME</span><span class="logo-star" aria-hidden="true"></span></span> <span class="logo-caps">Fatale</span>';
   var page = document.body.getAttribute("data-page") || "";
   var navItems = [["tienda.html", "Tienda", "tienda"], ["nosotras.html", "Nosotras", "nosotras"], ["contacto.html", "Contacto", "contacto"]];
   var nav = navItems.map(function (n) {
@@ -78,7 +83,7 @@
     '<a href="tienda.html?marca=rhode">Rhode</a><a href="tienda.html?marca=rare-beauty">Rare Beauty</a><a href="tienda.html?col=k-beauty">Skincare coreano</a>';
 
   var headerHTML =
-    '<a class="skip" href="#main">Saltar al contenido</a>' +
+    '<a class="skip" href="' + FF.here("#main") + '">Saltar al contenido</a>' +
     '<div class="announce" id="announce">Envíos a todo Costa Rica<span class="announce-more"> · Entregas personales en Heredia</span></div>' +
     '<header class="site-header" id="header"><div class="container header-bar">' +
       '<div class="header-left">' +

@@ -1,14 +1,18 @@
-/* Femme Fatale CR — página de producto (producto.html?p=<id>) */
+/* Femme Fatale CR — página de producto.
+   productos/<id>.html (generadas por _herramientas/generar_seo.py) llevan
+   data-product en <body>. producto.html?p=<id> redirige a esa URL limpia. */
 (function () {
   "use strict";
   var FF = window.FF, $ = FF.$, $$ = FF.$$, esc = FF.esc;
   var C = window.FF_CONFIG;
-  var id = new URLSearchParams(location.search).get("p");
+  var id = document.body.getAttribute("data-product") || new URLSearchParams(location.search).get("p");
   var p = FF.byId[id];
   var root = $("#pdp-root");
 
+  if (p && !document.body.hasAttribute("data-product")) { location.replace(FF.url(p)); return; }
+
   if (!p) {
-    root.innerHTML = '<div class="empty" style="padding-block:120px"><i class="ph ph-magnifying-glass" aria-hidden="true"></i><h3>No encontramos este producto</h3><p>Puede que ya no esté disponible. Mira lo que tenemos hoy.</p><a class="btn" href="tienda.html"><span>Ver la tienda</span></a></div>';
+    root.innerHTML = '<div class="empty" style="padding-block:120px"><i class="ph ph-magnifying-glass" aria-hidden="true"></i><h1>No encontramos este producto</h1><p>Puede que ya no esté disponible. Mira lo que tenemos hoy.</p><a class="btn" href="tienda.html"><span>Ver la tienda</span></a></div>';
     document.title = "Producto no encontrado | Femme Fatale CR";
     return;
   }
@@ -17,19 +21,28 @@
   var qty = 1;
 
   /* ---------- Metadatos y datos estructurados ---------- */
-  document.title = FF.fullName(p) + " | Femme Fatale CR";
-  $('meta[name="description"]').setAttribute("content", p.description);
-  [["og:title", FF.fullName(p) + " | Femme Fatale CR"], ["og:description", p.description], ["og:image", FF.img(p.images[0], 1200, "1:1")]].forEach(function (m) {
-    var el = document.createElement("meta"); el.setAttribute("property", m[0]); el.setAttribute("content", m[1]); document.head.appendChild(el);
+  // Título, descripción, canonical y Open Graph vienen en el HTML generado.
+  var canonical = $('link[rel="canonical"]');
+  var pageUrl = canonical ? canonical.href : location.href;
+  var ship = (C.shipping || []).filter(function (o) { return o.cost != null; }).map(function (o) {
+    return { "@type": "OfferShippingDetails", shippingLabel: o.label,
+      shippingRate: { "@type": "MonetaryAmount", value: o.cost, currency: "CRC" },
+      shippingDestination: { "@type": "DefinedRegion", addressCountry: "CR" } };
   });
   var ld = {
     "@context": "https://schema.org", "@type": "Product",
-    name: p.name, description: p.description, sku: p.id,
+    name: FF.fullName(p), description: p.description, sku: p.id,
     brand: { "@type": "Brand", name: FF.brandName(p.brand) },
     image: p.images.map(function (i) { return FF.img(i, 1200, "1:1"); }),
     category: FF.catName(p.category),
-    offers: { "@type": "Offer", url: location.href, priceCurrency: "CRC", price: p.price, availability: "https://schema.org/InStock", itemCondition: "https://schema.org/NewCondition",
-      seller: { "@type": "Organization", name: "Femme Fatale CR" } }
+    url: pageUrl,
+    offers: { "@type": "Offer", url: pageUrl, priceCurrency: "CRC", price: p.price, itemCondition: "https://schema.org/NewCondition",
+      availability: p.badge === "Por encargo" ? "https://schema.org/BackOrder" : "https://schema.org/InStock",
+      seller: { "@type": "Organization", name: "Femme Fatale CR" },
+      shippingDetails: ship,
+      hasMerchantReturnPolicy: { "@type": "MerchantReturnPolicy", applicableCountry: "CR",
+        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow", merchantReturnDays: 7,
+        returnMethod: "https://schema.org/ReturnByMail", returnFees: "https://schema.org/ReturnShippingFees" } }
   };
   // Solo con reseñas reales: Google penaliza calificaciones sin respaldo
   if (p.reviews && !C.demo) ld.aggregateRating = { "@type": "AggregateRating", ratingValue: p.rating, reviewCount: p.reviews };

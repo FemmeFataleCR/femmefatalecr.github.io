@@ -2,6 +2,8 @@
    Femme Fatale CR — configuración y catálogo
    Este es el ÚNICO archivo que hay que editar para cambiar productos,
    precios, número de WhatsApp o el feed de Instagram.
+   Después de cualquier cambio aquí, ejecutar: python _herramientas/generar_seo.py
+   (regenera productos/*.html, sitemap.xml y llms.txt).
    ========================================================================== */
 
 window.FF_CONFIG = {

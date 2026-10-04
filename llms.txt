@@ -1,0 +1,47 @@
+# Femme Fatale CR
+
+> Tienda independiente de maquillaje y skincare en Heredia, Costa Rica: Rhode, Rare Beauty, favoritos de Sephora, skincare coreano y Yves Rocher. Pedidos por WhatsApp, pago por SINPE Móvil o transferencia y envíos por Correos de Costa Rica a todo el país. No está afiliada a las marcas que vende.
+
+- Precios en colones costarricenses, actualizados al 2026-10-04. El envío se cobra aparte: Correos de Costa Rica · GAM: ₡2 300; Correos de Costa Rica · Resto del país: ₡3 100; Entrega personal en Heredia: gratis.
+- WhatsApp: +506 8860-5333. Instagram: @femmefatale_cr.
+- Productos marcados "por encargo": se confirma disponibilidad y plazo por WhatsApp antes del pago.
+
+## Páginas
+
+- [Inicio](https://femmefatalecr.github.io/): marcas, productos destacados y preguntas frecuentes
+- [Tienda](https://femmefatalecr.github.io/tienda.html): catálogo completo con filtros por categoría, marca y tipo de piel
+- [Políticas](https://femmefatalecr.github.io/politicas.html): envíos, cambios en 7 días con producto sellado, privacidad y términos
+- [Contacto](https://femmefatalecr.github.io/contacto.html): WhatsApp, Instagram y preguntas frecuentes
+- [Nosotras](https://femmefatalecr.github.io/nosotras.html): quiénes somos
+
+## Productos
+
+- [Rhode Peptide Lip Tint](https://femmefatalecr.github.io/productos/rhode-peptide-lip-tint.html): ₡17 000, 10 ml (0.3 fl oz). Bálsamo con color translúcido y brillo jugoso. Hidrata como un tratamiento y se ve como un gloss.
+- [Rhode Peptide Lip Treatment](https://femmefatalecr.github.io/productos/rhode-peptide-lip-treatment.html): ₡19 500, 10 ml (0.3 fl oz). El tratamiento de labios que se volvió culto: textura gruesa, brillo glaseado y labios hidratados todo el día.
+- [Rhode Pocket Blush](https://femmefatalecr.github.io/productos/rhode-pocket-blush.html): ₡19 000, 5.3 g (0.18 oz). Rubor en barra cremoso que se funde con la piel. Cabe en cualquier bolsillo y sirve para mejillas y labios.
+- [Rhode Pocket Bronze](https://femmefatalecr.github.io/productos/rhode-pocket-bronze.html): ₡19 000, 5.3 g (0.18 oz). Bronceador en barra cremoso para calidez de sol en segundos, sin polvo ni brochas.
+- [Rhode Highlight Milk](https://femmefatalecr.github.io/productos/rhode-highlight-milk.html): ₡20 000, 65 ml (2.2 fl oz). Iluminador líquido multiuso: luz en los pómulos, mezclado con tu crema o sobre el cuerpo.
+- [Rhode Glazing Milk](https://femmefatalecr.github.io/productos/rhode-glazing-milk.html): ₡28 500, 124 ml (4.2 oz). Esencia ligera que prepara la piel y la deja con el acabado glaseado característico de Rhode.
+- [Rhode Barrier Restore Cream](https://femmefatalecr.github.io/productos/rhode-barrier-restore-cream.html): ₡28 500, 50 ml (1.7 oz). Crema hidratante que ayuda a reparar la barrera de la piel. Textura rica que se absorbe sin sensación pesada.
+- [Rhode Peptide Glazing Fluid](https://femmefatalecr.github.io/productos/rhode-peptide-glazing-fluid.html): ₡28 500, 50 ml (1.7 oz). Sérum en gel que hidrata y deja la piel luminosa. El paso que da el famoso efecto glazed.
+- [Rare Beauty Soft Pinch Liquid Blush](https://femmefatalecr.github.io/productos/rare-beauty-soft-pinch-liquid-blush.html): ₡19 500, 7.5 ml (0.25 fl oz). El rubor líquido más vendido de Rare Beauty. Muy pigmentado: un solo punto basta para cada mejilla.
+- [Rare Beauty Positive Light Liquid Luminizer](https://femmefatalecr.github.io/productos/rare-beauty-positive-light-liquid-luminizer.html): ₡24 000, 15 ml. Iluminador líquido que se funde con la piel para un brillo natural, sin partículas gruesas.
+- [Rare Beauty Warm Wishes Effortless Bronzer Stick](https://femmefatalecr.github.io/productos/rare-beauty-warm-wishes-bronzer-stick.html): ₡26 000, 7 g. Bronceador en barra con aplicador de esponja integrado. Calidez natural en un solo gesto.
+- [Rare Beauty Soft Pinch Tinted Lip Oil](https://femmefatalecr.github.io/productos/rare-beauty-soft-pinch-tinted-lip-oil.html): ₡21 500, 3 ml (0.10 fl oz) (por encargo). Aceite de labios con color que hidrata y deja un brillo ligero, sin sensación pegajosa.
+- [Rare Beauty Kind Words Matte Lipstick](https://femmefatalecr.github.io/productos/rare-beauty-kind-words-matte-lipstick.html): ₡19 500, 3.5 g. Labial mate cómodo de llevar, con color intenso que no reseca.
+- [Rare Beauty Perfect Strokes Volumizing Mascara](https://femmefatalecr.github.io/productos/rare-beauty-perfect-strokes-mascara.html): ₡21 500, 13.5 ml (0.45 oz). Máscara de volumen que levanta y define cada pestaña sin grumos.
+- [Rare Beauty Brow Harmony Flexible Lifting Gel](https://femmefatalecr.github.io/productos/rare-beauty-brow-harmony-gel.html): ₡19 500, 4.5 g (0.15 oz). Gel de cejas que peina, levanta y fija con acabado flexible. Transparente o con color.
+- [SKIN1004 Madagascar Centella Ampoule](https://femmefatalecr.github.io/productos/skin1004-centella-ampoule.html): ₡19 500, 100 ml (por encargo). Ampolla ligera que calma la piel irritada. Un clásico coreano para pieles sensibles.
+- [Beauty of Joseon Relief Sun: Rice + Niacinamide SPF50+](https://femmefatalecr.github.io/productos/beauty-of-joseon-relief-sun.html): ₡18 500, 50 ml (1.69 fl oz). Protector solar ligero de acabado natural, sin rastro blanco. Ideal para el sol de Costa Rica todos los días.
+- [Rhode Peptide Lip Shape](https://femmefatalecr.github.io/productos/rhode-peptide-lip-shape.html): ₡21 500, 0.75 g (0.026 oz). Delineador de labios en crema con péptidos: define el contorno, rellena y se difumina fácil.
+- [Rhode Peptide Eye Prep](https://femmefatalecr.github.io/productos/rhode-peptide-eye-prep.html): ₡21 500, 6 pares de parches. Parches para el contorno de ojos con péptidos, pensados para refrescar y desinflamar la mirada antes del maquillaje.
+- [Rhode Glazing Mist](https://femmefatalecr.github.io/productos/rhode-glazing-mist.html): ₡26 000, 80 ml (2.7 oz). Bruma facial hidratante para refrescar la piel y renovar el glow durante el día, incluso sobre el maquillaje.
+- [Summer Fridays Lip Butter Balm](https://femmefatalecr.github.io/productos/summer-fridays-lip-butter-balm.html): ₡19 500, 15 g (0.5 oz). El bálsamo de labios que se volvió favorito en Sephora: textura mantequillosa, brillo suave y labios nutridos.
+- [EADEM Le Chouchou Peptide Lip Balm](https://femmefatalecr.github.io/productos/eadem-le-chouchou.html): ₡21 500, 14 g (0.49 oz). Bálsamo labial con péptidos que suaviza y deja un brillo jugoso. Uno de los más vendidos de Sephora.
+- [Patrick Ta Major Headlines Double-Take Crème & Powder Blush Duo](https://femmefatalecr.github.io/productos/patrick-ta-major-headlines-blush-duo.html): ₡35 500, 5 g de rubor en crema + 5 g de rubor en polvo (por encargo). Dúo de rubor en crema y en polvo del mismo tono: la crema da el color y el polvo lo sella para que dure todo el día.
+- [ONE/SIZE On 'Til Dawn Mattifying Waterproof Setting Spray](https://femmefatalecr.github.io/productos/one-size-on-til-dawn.html): ₡32 000, 143 ml (3.4 oz de peso neto) (por encargo). Spray fijador matificante y a prueba de agua para que el maquillaje aguante el calor y la humedad.
+- [innisfree Green Tea Ceramide Mist](https://femmefatalecr.github.io/productos/innisfree-green-tea-ceramide-mist.html): ₡16 000, 90 ml (3.04 oz). Bruma coreana con té verde de Jeju y ceramidas para hidratar y calmar la piel en cualquier momento del día.
+- [Yves Rocher Glow Énergie Glow Activating Serum](https://femmefatalecr.github.io/productos/yves-rocher-glow-activating-serum.html): ₡32 000, 30 ml. Sérum iluminador para las primeras señales de la edad. Deja la piel con más luz y aspecto descansado.
+- [Yves Rocher Riche Crème Intense Regenerating Care](https://femmefatalecr.github.io/productos/yves-rocher-riche-creme.html): ₡43 000, 75 ml. Crema nutritiva de textura rica para piel madura. Uno de los clásicos más vendidos de Yves Rocher.
+- [Yves Rocher Monoï Moisturizing Pearly Oil](https://femmefatalecr.github.io/productos/yves-rocher-monoi-pearly-oil.html): ₡18 500, 100 ml. Aceite corporal nacarado con aroma a monoï que hidrata y deja la piel con un brillo sutil.
+- [Yves Rocher Comme une Évidence Eau de Parfum](https://femmefatalecr.github.io/productos/yves-rocher-comme-une-evidence.html): ₡37 500, 50 ml. El perfume femenino emblemático de Yves Rocher, en eau de parfum de 50 ml.
