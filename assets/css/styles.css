@@ -82,6 +82,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 /* Íconos: la hoja de Phosphor carga sin bloquear; reservar su caja evita saltos */
 .ph, .ph-fill { display: inline-block; width: 1em; height: 1em; line-height: 1; }
+/* Los scripts usan defer: mientras la cuadrícula de la tienda está vacía, reserva la
+   pantalla para que el footer no aparezca arriba y luego salte (CLS). */
+#grid:empty { min-height: 100vh; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .skip { position: absolute; left: 16px; top: -100px; background: var(--btn-bg); color: var(--btn-ink); padding: 10px 16px; z-index: 100; }
 .skip:focus { top: 12px; }
